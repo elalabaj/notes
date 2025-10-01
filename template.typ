@@ -909,7 +909,7 @@
   "definition",
   theorion-i18n-map.at("definition"),
   counter: theorem-counter,
-  render: render-fn.with(fill: orange),
+  render: render-fn.with(fill: blue),
 )
 
 #let (axiom-counter, axiom-box, axiom, show-axiom) = make-frame(
