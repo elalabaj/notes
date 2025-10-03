@@ -48,7 +48,7 @@ Ponieważ $a_n$ jest wybierane jednoznacznie to wynik jest równy ilości liczb 
 ]
 
 1 i 2 można wstawić w każdą permutację pozostałych cyfr w $10 - 2 - k + 1 = 9-k$ miejsc.
-$ (9-k) dot 8! $
+Kolejność 1 i 2 może być dowolna. $ 2 dot (9-k) dot 8! $.
 
 #problem[
   Ile jest różnych permutacji zbioru ${1, 2, ..., 2n}$ takich, że żadne dwie liczby parzyste nie są 
