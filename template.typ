@@ -962,6 +962,14 @@
   render: render-fn.with(fill: green.darken(40%)),
 )
 
+#let (subproblem-counter, subproblem-box, subproblem, show-subproblem) =make-frame(
+  "subproblem",
+  "",
+  inherited-from: problem-counter,
+  numbering: "1.a)",
+  render: render-fn.with(fill: green.darken(40%)),
+)
+
 /// Collection of show rules for all theorem environments
 /// Applies all theorion-related show rules to the document
 ///
@@ -979,6 +987,7 @@
   show: show-property
   show: show-conjecture
   show: show-problem
+  show: show-subproblem
   body
 }
 
