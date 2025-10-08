@@ -107,7 +107,7 @@ $
 $arg(-2+2i)$
 ]
 
-#image("im1.png", width: 20%)
+#image("images/im1.png", width: 20%)
 $arg(-2+2i) = phi = (3pi)/4$
 
 #subproblem[
@@ -127,7 +127,7 @@ $
   $z=7+7i$
 ]
 
-#image("im2.png", width: 20%)
+#image("images/im2.png", width: 20%)
 
 $phi = pi/4$
 
@@ -140,7 +140,7 @@ $z = 7 sqrt(2)(cos pi/4 + i sin pi/4)$
   $z=sqrt(3)-i$
 ]
 
-#image("im3.png", width: 20%)
+#image("images/im3.png", width: 20%)
 
 $phi = (11pi)/6$
 
@@ -155,7 +155,7 @@ $z= 2(cos (11pi)/6 + i sin (11pi)/6)$
  $ 1/i dot 1/(1+i) = i/(i^2) dot (1-i)/(1-i^2) = (i + 1)/(-1(1+1)) = (i+1)/(-2) 
 = - 1/2 - 1/2i $
 
-#image("im4.png", width: 20%)
+#image("images/im4.png", width: 20%)
 
 $phi = (5pi/4)$
 
@@ -226,7 +226,7 @@ $
 $abs(z - i + 3) = abs(z - (-3 + i)) > 3 <=>$ odległość $z$ od punktu $(-3, 1) >
 3$
 
-#image("im5.png", width: 30%)
+#image("images/im5.png", width: 30%)
 
 #subproblem[
   ${z in CC : abs(z - 1) = abs(z + 1)}$
@@ -236,7 +236,7 @@ $abs(z - 1) = abs(z + 1) <=> abs(z - (1 + 0i)) = abs(z - (-1 + 0i))$
 
 Odległości $z$ od $(1, 0)$ i $(-1, 0)$ są równe.
 
-#image("im6.png", width: 30%)
+#image("images/im6.png", width: 30%)
 
 #pagebreak()
 #subproblem[
@@ -254,7 +254,7 @@ $1 = (-3/2)(-3/2) + b => b = 1 - 9/4 = -5/4 $
 
 $ y = -3/2 x - 5/4$
 
-#image("im7.png", width: 30%)
+#image("images/im7.png", width: 30%)
 
 #subproblem[
   ${z in CC : Re(z-i)^2 <= 0}$
@@ -271,7 +271,7 @@ cases(
 )
 $
 
-#image("im8.png", width: 30%)
+#image("images/im8.png", width: 30%)
 
 #pagebreak()
 #subproblem[
@@ -288,7 +288,7 @@ $tg (2pi)/3 = -sqrt(3) => (y+1) = -sqrt(3)(x-3) => y = -sqrt(3)x + 3sqrt(3)-1$
 Należy pamiętać, że $arg(0) = 0$, dlatego $(x-3, y+1) != (0, 0) => (x, y) !=
 (3,-1)$
 
-#image("im9.png", width: 30%)
+#image("images/im9.png", width: 30%)
 
 #subproblem[
   ${z in CC : pi/6 <= arg(overline(z)+i)<=pi}$
@@ -311,15 +311,65 @@ $arg(0) = 0 => overline(z)+i != (0, 0)$
 $(0, 0) stretch(->)^(T_[0, -1]) (0, -1) stretch(->)^(S_(O X)) (0, 1) => z !=
 (0,1)$
 
-#image("im10.png", width: 30%)
+#image("images/im10.png", width: 30%)
 
 #subproblem[
   ${z in CC : arg(i/(i-z))=(4pi)/3}$
 ]
 
+Zał: $z != i => z != (0,1)$
+
 $z = x + y i =>$
-$ i/(i-z) = i/(i - x - y i) = i / ((1-y)i - x) = 
-(i((1-y)i + x))/((1-y)^2 i^2 -x^2) =
-(-1 + y + x i)/(-1 + 2y - y^2 - x^2)
+$ i/(i-z) = i/(i - x - y i) = i / (-x + (1 - y)i)= 
+(i(-x - (1-y)i))/(x^2 - (1-y)i^2) = (-x i - i^2 + y i^2)/(x^2 + (1-y)^2)
+= (1 - y - x i)/(x^2 + (1-y)^2)
 $
 
+$
+tg (4pi)/3 = sqrt(3) = Im/Re = ((-x)/(x^2 + (1-y)^2))/((1-y)/(x^2 + (1-y)^2))=
+(-x)/(1-y)
+$
+$
+sqrt(3) - sqrt(3)y &= -x\
+-sqrt(3)y &= -x - sqrt(3)\
+y &= 1/sqrt(3) x + 1
+$
+
+Interesuje nas tylko ta półprosta, która tworzy kąt $4pi/3$. Jest ona w trzeciej
+ćwiartce, dlatego $Im, Re < 0$
+
+$
+cases((-x)/(x^2 + (1-y)^2) < 0, (1-y)/(x^2 + (1-y)^2) < 0) <=>
+cases(-x < 0, 1-y < 0) <=>
+cases(x > 0, y > 1)
+$
+
+#image("images/im11.png", width: 30%)
+
+#subproblem[
+  ${z in CC : arg(i/z)<= (3pi)/4}$
+]
+
+Zał: $z != 0 => z != (0,0)$
+
+$
+z = x + y i => i/z = i/(x + y i) = (i(x - y i))/(x^2 - y^2 i ^2) =
+(x i - y i ^2)/(x^2 + y^2) = (y + x i)/(x^2 + y^2)
+$
+
+$
+tg (3pi)/4 = -1 &>= Im/Re = x/y\
+
+x/y + 1 &<= 0\
+(x-y)/y &<= 0\
+(x-y)y &<= 0
+$
+
+$
+cases(y >= x and y <= 0, y <= x and y >= 0)
+$
+
+$angle.l 0, (3pi)/4 angle.r$ to pierwsza i druga ćwiartka
+$=> Im >= 0 <=> x/(x^2 + y^2) >= 0 <=> x >= 0$
+
+#image("images/im12.png", width: 30%)
