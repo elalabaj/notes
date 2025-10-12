@@ -259,31 +259,11 @@ $ y = -3/2 x - 5/4$
   ${z in CC : Re(z-i)^2 <= 0}$
 ]
 
-_Sposób 1_
-
-$z &= x + y i =>z-i &= x + (y-1)i$
-
-$Re(z-i)^2 &= x^2 - (y-1)^2 = (x - y + 1)(x + y - 1) <= 0$
-
-$
-cases(
-  y >= x+1 and y <= -x + 1,
-  y <= x+1 and y >= -x + 1
-)
-$
-
-
-_Sposób 2_
-
 $arg(z-i) = phi => arg((z-i)^2) = 2phi mod 2pi in angle.l pi/2, (3pi)/2 angle.r$
 
 $phi in angle.l 0, pi) => 2phi mod 2pi = 2phi => phi in angle.l pi/4, (3pi)/4
-angle.r$
-
-$phi in angle.l pi, 2 pi) => 2phi mod 2pi = 2phi - 2 pi => 
-phi in angle.l (5pi)/4, (7pi)/4 angle.r$
-
-$phi in angle.l pi/4, (3pi)/4 angle.r union angle.l (5pi)/4, (7pi)/4 angle.r$
+angle.r 
+<=> phi mod pi in angle.l pi/4, (3pi)/4 angle.r$
 
 $z-i stretch(->)^(T_[0,1]) z$ 
 
