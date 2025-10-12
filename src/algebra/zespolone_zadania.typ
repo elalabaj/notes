@@ -259,10 +259,9 @@ $ y = -3/2 x - 5/4$
   ${z in CC : Re(z-i)^2 <= 0}$
 ]
 
-$arg(z-i) = phi => arg((z-i)^2) = 2phi mod 2pi in angle.l pi/2, (3pi)/2 angle.r$
+$arg(z-i) = phi => arg((z-i)^2) = 2phi mod 2pi$
 
-$phi in angle.l 0, pi) => 2phi mod 2pi = 2phi => phi in angle.l pi/4, (3pi)/4
-angle.r 
+$2phi mod 2pi in angle.l pi/2, (3pi)/2 angle.r 
 <=> phi mod pi in angle.l pi/4, (3pi)/4 angle.r$
 
 $z-i stretch(->)^(T_[0,1]) z$ 
