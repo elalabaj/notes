@@ -102,7 +102,6 @@ $
 abs(3-4i) = sqrt(3^2 + 4^2) = 5
 $
 
-#pagebreak()
 #subproblem[
 $arg(-2+2i)$
 ]
@@ -115,8 +114,12 @@ $arg(-2+2i) = phi = (3pi)/4$
 ]
 
 $
-(1+i)^n/(1-i)^(n-2) = ((1+i)^n (1+i)^(n-2))/((1-i)^(n-2) (1+i)^(n-2))=
-(1+i)^(2n-2)/(1-i^2)^(n-2) = (1+i)^(2n-2)/2^(n-2) 
+(1+i)/(1-i) = (1+i)^2/((1-i)(1+i)) = (1 + 2i + i^2)/(1-i^2) = (2i)/2 = i
+$
+
+$
+(1+i)^n/(1-i)^(n-2)  = (1+i)^(n-2)/(1-i)^(n-2) dot (1+i)^2 = i^(n-2) dot 2i =
+2i^(n-1)
 $
 
 #problem[
@@ -135,7 +138,6 @@ $abs(z) = sqrt(7^2 + 7^2) = 7 sqrt(2)$
 
 $z = 7 sqrt(2)(cos pi/4 + i sin pi/4)$
 
-#pagebreak()
 #subproblem[
   $z=sqrt(3)-i$
 ]
@@ -163,7 +165,6 @@ $abs(z) = 1/2 dot sqrt(2)$
 
 $z = sqrt(2)/2 (cos (5pi)/4 + i sin (5pi)/4)$
 
-#pagebreak()
 #subproblem[
 $z=1+i tg alpha$
 ]
@@ -218,7 +219,6 @@ $
   Zilustruj na płaszczyźnie zespolonej następujące zbiory:
 ]
 
-#pagebreak()
 #subproblem[
   ${z in CC : abs(z - i + 3) > 3}$
 ]
@@ -238,7 +238,6 @@ Odległości $z$ od $(1, 0)$ i $(-1, 0)$ są równe.
 
 #image("images/im6.png", width: 30%)
 
-#pagebreak()
 #subproblem[
   ${z in CC : abs(z-2i)/abs(z+3) < 1}$
 ]
@@ -260,6 +259,8 @@ $ y = -3/2 x - 5/4$
   ${z in CC : Re(z-i)^2 <= 0}$
 ]
 
+_Sposób 1_
+
 $z &= x + y i =>z-i &= x + (y-1)i$
 
 $Re(z-i)^2 &= x^2 - (y-1)^2 = (x - y + 1)(x + y - 1) <= 0$
@@ -271,22 +272,30 @@ cases(
 )
 $
 
+
+_Sposób 2_
+
+$arg(z-i) = phi => arg((z-i)^2) = 2phi mod 2pi in angle.l pi/2, (3pi)/2 angle.r$
+
+$phi in angle.l 0, pi) => 2phi mod 2pi = 2phi => phi in angle.l pi/4, (3pi)/4
+angle.r$
+
+$phi in angle.l pi, 2 pi) => 2phi mod 2pi = 2phi - 2 pi => 
+phi in angle.l (5pi)/4, (7pi)/4 angle.r$
+
+$phi in angle.l pi/4, (3pi)/4 angle.r union angle.l (5pi)/4, (7pi)/4 angle.r$
+
+$z-i stretch(->)^(T_[0,1]) z$ 
+
 #image("images/im8.png", width: 30%)
 
-#pagebreak()
 #subproblem[
   ${z in CC : arg(z-3+i)=(2pi)/3}$
 ]
 
-$z = x+y i => z-3+i = (x-3)+(y+1)i$
+Kąt $(2pi)/3$ bez punktu $(0, 0)$, bo $arg(0) = 0$
 
-Szukamy półprostej o początku w $(0, 0)$ przechodzącej przez $(x-3, y+1)$ o
-nachyleniu $(2pi)/3$.
-
-$tg (2pi)/3 = -sqrt(3) => (y+1) = -sqrt(3)(x-3) => y = -sqrt(3)x + 3sqrt(3)-1$
-
-Należy pamiętać, że $arg(0) = 0$, dlatego $(x-3, y+1) != (0, 0) => (x, y) !=
-(3,-1)$
+$z-3+i stretch(->)^(T_[3, -1]) z$
 
 #image("images/im9.png", width: 30%)
 
@@ -296,21 +305,6 @@ Należy pamiętać, że $arg(0) = 0$, dlatego $(x-3, y+1) != (0, 0) => (x, y) !=
 
 $overline(z) + i stretch(->)^(T_[0, -1]) overline(z) stretch(->)^(S_(O X)) z$
 
-
-$tg pi/6 = 1/sqrt(3), tg pi = 0$
-
-$pi/6 <= arg(z) <= pi <=>$
-$ 
-y &>= 1/sqrt(3) x &and y &>= 0 stretch(->)^(T_[0, -1]) \
-y &>= 1/sqrt(3) x - 1 &and y &>= 1 stretch(->)^(S_(O X))  \
-y &<= -1/sqrt(3) x + 1 &and y &<= -1\
-$
-
-$arg(0) = 0 => overline(z)+i != (0, 0)$
-
-$(0, 0) stretch(->)^(T_[0, -1]) (0, -1) stretch(->)^(S_(O X)) (0, 1) => z !=
-(0,1)$
-
 #image("images/im10.png", width: 30%)
 
 #subproblem[
@@ -319,30 +313,13 @@ $(0, 0) stretch(->)^(T_[0, -1]) (0, -1) stretch(->)^(S_(O X)) (0, 1) => z !=
 
 Zał: $z != i => z != (0,1)$
 
-$z = x + y i =>$
-$ i/(i-z) = i/(i - x - y i) = i / (-x + (1 - y)i)= 
-(i(-x - (1-y)i))/(x^2 - (1-y)i^2) = (-x i - i^2 + y i^2)/(x^2 + (1-y)^2)
-= (1 - y - x i)/(x^2 + (1-y)^2)
+$
+arg(i) - arg(i-z) & equiv (4pi)/3 (mod 2pi) \
+pi/2 - arg(i-z) & equiv (4pi)/3 \
+arg(i-z) & equiv pi/2 - (4pi)/3 = (3pi)/6 - (8pi)/6 = - (5pi)/6 equiv (7pi)/6
 $
 
-$
-tg (4pi)/3 = sqrt(3) = Im/Re = ((-x)/(x^2 + (1-y)^2))/((1-y)/(x^2 + (1-y)^2))=
-(-x)/(1-y)
-$
-$
-sqrt(3) - sqrt(3)y &= -x\
--sqrt(3)y &= -x - sqrt(3)\
-y &= 1/sqrt(3) x + 1
-$
-
-Interesuje nas tylko ta półprosta, która tworzy kąt $4pi/3$. Jest ona w trzeciej
-ćwiartce, dlatego $Im, Re < 0$
-
-$
-cases((-x)/(x^2 + (1-y)^2) < 0, (1-y)/(x^2 + (1-y)^2) < 0) <=>
-cases(-x < 0, 1-y < 0) <=>
-cases(x > 0, y > 1)
-$
+$i-z stretch(->)^(S_((0,0))) z-i  stretch(->)^(T_([0,1])) z$
 
 #image("images/im11.png", width: 30%)
 
@@ -352,24 +329,34 @@ $
 
 Zał: $z != 0 => z != (0,0)$
 
+$i/z stretch(->)^(R^(-pi/2)_((0,0))) i/z dot 1/i = 1/z
+stretch(->)^(S_Re, P^(1/abs(z))) z
 $
-z = x + y i => i/z = i/(x + y i) = (i(x - y i))/(x^2 - y^2 i ^2) =
-(x i - y i ^2)/(x^2 + y^2) = (y + x i)/(x^2 + y^2)
-$
-
-$
-tg (3pi)/4 = -1 &>= Im/Re = x/y\
-
-x/y + 1 &<= 0\
-(x-y)/y &<= 0\
-(x-y)y &<= 0
-$
-
-$
-cases(y >= x and y <= 0, y <= x and y >= 0)
-$
-
-$angle.l 0, (3pi)/4 angle.r$ to pierwsza i druga ćwiartka
-$=> Im >= 0 <=> x/(x^2 + y^2) >= 0 <=> x >= 0$
 
 #image("images/im12.png", width: 30%)
+
+#subproblem[
+  ${z in CC : Im((z-2i)^4)>0}$
+]
+
+$arg(z-2i) = phi => arg((z-2i)^4) = 4 phi mod 2pi in (0,pi) <=>
+phi mod pi/2 in (0, pi/4)
+$
+
+$z-2i stretch(->)^(T[0, 2]) z$
+
+#image("images/im13.png", width: 30%)
+
+#subproblem[
+  ${z in CC : (z+4)/(z-2i) in RR}$
+]
+
+Zał: $z != 2i <=> z != (0, 2)$
+
+$(z+4)/(z-2i) in RR <=> arg((z+4)/(z-2i)) in {0, pi}$
+
+$z-4$ i $z-2i$ są współliniowe
+
+Rozwiązanie to prosta przechodząca przez  $(-4, 0)$ i $(0, 2)$ z wyłączeniem $(0,2)$.
+
+#image("images/im14.png", width: 30%)
