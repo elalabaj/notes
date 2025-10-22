@@ -339,3 +339,111 @@ $z-4$ i $z-2i$ są współliniowe
 Rozwiązanie to prosta przechodząca przez  $(-4, 0)$ i $(0, 2)$ z wyłączeniem $(0,2)$.
 
 #image("images/im14.png", width: 30%)
+
+#problem[
+  Oblicz wartości podanych wyrażeń (wyniki podaj w postaci algebraicznej):
+]
+
+#subproblem[
+  $(1-i)^6$
+]
+
+$1-i = sqrt(2) e^(i (7pi)/4)\
+(1-i)^6 = sqrt(2)^6 e^(i 6 dot (7pi)/4) = 8 e^(i (21pi)/2) = 8 e^(i 10 1/2 pi)=
+8 e^(i pi/2) = 8i$
+
+#subproblem[
+  $((1+i sqrt(3))/(1-i))^20$
+]
+
+$(1+i sqrt(3))/(1-i) =  (2 e^(i pi/3))/(sqrt(2) e^(i (7pi)/4)) = 
+2/sqrt(2) e^(i (pi/3 - (7pi)/4)) = sqrt(2) e^(i ((4pi)/12 - (21pi)/12))=
+sqrt(2) e^(i (-17pi)/12) = sqrt(2) e^(i (7pi)/12)$
+
+$((1+i sqrt(3))/(1-i))^20 = sqrt(2)^20 e^(i 20 dot (7pi)/12) = 
+1024 e^(i (140pi)/12) = 1024 e^(i (20pi)/12) = 1024 e^(i (5pi)/3) = 
+512 - 512 sqrt(3) i$
+
+#subproblem[
+  $((1+i)^22)/((1-i sqrt(3))^6)$
+]
+
+$1+i = sqrt(2) e^(i pi/4)$
+
+$(1+i)^22 = sqrt(2)^22 e^(i 22 dot pi/4) = 2048 e^(i pi/2) = -2048i$
+
+$1-i sqrt(3) = 2 e^(i (5pi)/3)$
+
+$(1-i)^6 = 2^6 e^(i 6 dot (5pi)/3) = 64 e^(i 10pi) = 64 e^(i 0) = 64$
+
+$((1+i)^22)/((1-i sqrt(3))^6) = (-2048i)/64 = -32i$
+
+#subproblem[
+$(-cos pi/7 + i sin pi/7)^14$
+]
+
+$-cos pi/7 + i sin pi/7 = -cos(- pi/7) - sin (- pi/7) = - e^(- i pi/7)$
+
+$(-cos pi/7 + i sin pi/7)^14 = (-1)^14 e^(-i (14pi)/7)= e^(-i 2 pi) = e^(i 0)=1$
+
+#subproblem[
+  $1 + i + i^2 + ... + i^n, n in NN$
+]
+
+$1 + i + i^2 + ... + i^n = ((i-1)(1+i+i^2+...+i^n))/(i-1)=(i^n-1)/(i-1)=
+(1-i^n)/(1-i) = ((1-i^n)(1+i))/2 =$
+
+$ =cases(
+  ((1-1)(1+i))/2 = 0 &"dla" i = 4k,
+  ((1-i)(1+i))/2 = 1 &"dla" i = 4k+1,
+  ((1+1)(1+i))/2 = 1+i &"dla" i = 4k+2,
+  ((1+i)(1+i))/2 = i &"dla" i=4k+3
+), k in ZZ $
+
+#problem[
+  Znajdź funkcję rzeczywistą taką, że:
+]
+
+#problem[
+  Oblicz pierwiastki z liczb zespolonych:
+]
+
+#subproblem[
+  $sqrt(-1+ sqrt(3)i)$
+]
+
+$z=-1+ sqrt(3)i = 2 e^(i (2pi)/3)$
+
+$z_0 = sqrt(2) e^(i (2pi)/(3 dot 2)) = sqrt(2) e^(i pi/3) = 
+sqrt(2)/2 + sqrt(6)/2 i$
+
+$z_1 = -z_0 = -sqrt(2)/2 - sqrt(6)/2 i$
+
+#subproblem[
+  $root(4, -4)$
+]
+
+$z = -4 = 4 e^(i pi)$
+
+$z_0 = 2 e^(i pi/4) = sqrt(2) + sqrt(2) i$
+
+$z_1 = -sqrt(2) + sqrt(2) i$
+
+$z_2 = -sqrt(2) - sqrt(2) i$
+
+$z_3 = sqrt(2) - sqrt(2) i$
+
+#subproblem[
+  $root(6, -64)$
+]
+
+$z = -64 = 64 e^(i pi)$
+
+$
+z_0 &= 8 e^(i pi/6) &=& 4 sqrt(3) + 4 i\
+z_1 &= 8 e^(i (3pi)/6) &=& 8i\
+z_2 &= 8 e^(i (5pi)/6) &=& -4 sqrt(3) + 4i\
+z_3 &= 8 e^(i (7pi)/6) &=& -4 sqrt(3) - 4i\
+z_4 &= 8 e^(i (9pi)/6) &=& -8i\
+z_5 &= 8 e^(i (11pi)/6) &=& 4 sqrt(3) - 4i\
+$
