@@ -12,7 +12,6 @@ Z wzorów Viete'a wiemy że dla wielomianu postaci $a_n z^n + a_(n-1) z^(n-1) +
 Dla wielomianu $z^n - 1 thick$ $a_(n-1) = 0$ i $a_n = 1$, więc suma pierwiastków
 wynosi $(-0)/1 = 0$.
 
-#pagebreak()
 *13*
 
 $cos n phi = cos^n phi - binom(n, 2) cos^(n-2) phi sin^2 phi + binom(n, 4)
@@ -69,7 +68,7 @@ $sin n phi = binom(n, 1) cos^(n-1) phi  sin phi -
 binom(n, 3) cos^(n-3) phi  sin^3 phi +
 binom(n, 5) cos^(n-5) phi  sin^5 phi - ...$
 
-.
+#pagebreak()
 
 Obliczmy $cos pi/5$ wykorzystując powyższą własność.
 
