@@ -181,18 +181,130 @@ $[(0, r)] = {(a, b) in NN^2: a-b = -r}, thick r in NN$
 
 $X slash R = {[(r, 0)]: r in NN} union {[(0, r)]: r in NN}$
 
+$X slash R = {{(a, b) in NN^2: abs(a-b)=r}: r in NN}$
+
 #problem[
   Niech $k in NN_+$. W zbiorze $ZZ$ wprowadzamy relację $m equiv n(mod k)
   <=> k|(m-n)$. Wykaż, że relacja ta jest równoważnością. Zbiór ilorazowy tej
   relacji będziey oznaczać przez $ZZ slash k$. 
 ]
 
++ #[ zwrotność:
+  $forall x in ZZ: x equiv x (mod k)$
 
+  $k|(x - x) <=> k|0$
+]
+
++ #[ symetryczność:
+  $forall x, y in ZZ: x equiv y (mod k) => y equiv x (mod k)$
+
+  $k|(x - y) => k|-1 dot (x - y) => k|(y-x)$
+]
+
++ #[ przechodność:
+  $forall x, y, z in ZZ: (x equiv y (mod k) and y equiv z (mod k)) => x equiv z
+(mod k)$
+
+  $k|(x-y) and k|(y-z) => k|((x-y)+(y-z)) => k|(x-z)$
+]
 
 #subproblem[
   Przyjmując $k=7$ podaj: $[2], [5], [-5]$;
 ]
 
+$[x] = {y in ZZ: x equiv y (mod 7)}$
+
+$[2] = {7n + 2, n in ZZ}$
+
+$[5] = {7n + 5, n in ZZ}$
+
+$[-5] = {7n - 5, n in ZZ} = [2]$
+
 #subproblem[
-  Przyjmując $k=7$ podaj: $ZZ slash 7$
+  Podaj $ZZ slash 7$.
 ]
+
+$ZZ slash 7 = {{7n + m, n in NN}, m = 0, 1, ..., 6}$
+
+#problem[
+  Niech $p$ będzie elementem zbioru $X$. W zbiorze $2^X$ podzbiorów zbioru $X$
+  określamy relację $R = (2^X, "gr"R, 2^X)$:
+
+  $
+    "gr"R := {(A, B) in 2^X times 2^X: (A = B) or (p in.not A union B)}
+  $
+
+  Czy $R$ jest relacją równoważności?
+]
+
++ #[ zwrotność:
+
+  $forall A in 2^X: A = A => A R A$
+]
+
++ #[ symetryczność:
+
+  $forall A, B in 2^X: (A = B) or (p in.not A union B) => 
+(B = A) or (p in.not B union A)$
+]
+
++ #[ przechodność:
+
+$A, B, C in 2^X$
+
+$((A = B) or (p in.not A union B)) and ((B = C) or (p in.not B union C))$
+
+$
+(A = B) &or (B = C) &=>& (A = C) &=> A R C \
+(A = B) &or (p in.not B union C) &=>& (p in.not A union C) &=> A R C \
+(p in.not A union B) &or (B = C) &=>& (p in.not A union C)&=>A R C \
+(p in.not A union B) &or (p in.not B union C) &=>& (p in.not A union C)&=>A R C \
+$
+]
+
+$R$ jest relacją równoważności.
+
+#problem[
+  Dane jest odwzorowanie $f : RR -> RR$ takie, że $f(x) = x^3 - 3x + 2$.
+
+  Niech $S = (RR, "gr"S, RR)$ będzie relacją taką, że $"gr"S = {(x, y) : f(x) =
+  f(y)}$.
+]
+
+#subproblem[
+ Wykaż, że $S$ jest relacją równoważności.
+]
+
++ #[ zwrotność:
+
+$forall x in RR: f(x) = f(x)$
+]
+
++ #[ symetryczność:
+
+$forall x, y in RR: f(x) = f(y) => f(y) = f(x)$
+]
+
++ #[ przechodność:
+
+$forall x, y, z in RR: (f(x) = f(y) and f(y) = f(z)) => f(x) = f(z)$
+]
+
+#subproblem[
+  Niech $a in RR$. Określ w zależności od $a$ liczebność klasy równoważności
+  $[a]$.
+]
+
+$f'(x) = 3x^2 - 3 = 3(x-1)(x+1)$
+
+$f(-1) = (-1)^3 - 3(-1) + 2 = 4$
+
+$f(1) = 1^3 - 3 dot 1 + 2 = 0$
+
+#image("images/im15.png", width: 30%)
+
+$
+a &in (-infinity, 1) union (4, +infinity) &<=> abs([a]) = 1 \
+a &in {1, 4} &<=> abs([a]) = 2 \
+a &in (1, 4) &<=> abs([a]) = 3 \
+$
