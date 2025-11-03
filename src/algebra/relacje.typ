@@ -303,8 +303,200 @@ $f(1) = 1^3 - 3 dot 1 + 2 = 0$
 
 #image("images/im15.png", width: 30%)
 
+#problem[
+  Wykaż, że jeżeli $R$ jest relacją porządkującą na zbiorze $X$, to relacja
+  $R^(-1)$ jest również relacją porządkującą na zbiorze $X$.
+]
+
++ #[ zwrotność:
+
+$forall x in X:  x R x => x R^(-1) x$
+]
+
++ #[ antysymetryczność:
+
+$forall x, y in X: (x R^(-1) y and y R^(-1) x) => (y R x and x R y) => x = y$
+]
+
++ #[ przechodność:
+
+$forall x, y, z in X: (x R^(-1) y and y R^(-1) z) => (y R x and z R y)
+=> (z R y and y R x) => z R x => x R^(-1) z$
+]
+
+#problem[
+  Niech $(X, prec.eq)$ będzie zbiorem uporządkowanym, $A subset X$. Udowodnij,
+  że jeżeli zbiór $A$ ma element najmniejszy (największy), to ten element jest
+  również kresem dolnym (odp. górnym) zbioru $A$.
+]
+
+$overline(m)  in A$ jest elementem najmniejszym $A <=> forall x in A: overline(m)
+prec.eq x$ \ 
+$inf A$ to największa minoranta $m in X$ taka, że $ forall x in A: m prec.eq x$
+
+_Dowód:_
+
+Niech $m$ będzie dowolną minorantą zbioru $A$.\
+$overline(m) in A => m prec.eq overline(m)$ \
+Ale $overline(m)$ też jest minorantą, więc jest największą minorantą czyli $inf A$.
+
+#problem[
+  Niech $R=(RR^2, "gr"R, RR^2)$, gdzie: $(x,y)R(x', y') <=> x <= x' and y <=
+  y'$.
+]
+
+#subproblem[
+  Wykaż, że $R$ jest relacją porządku. Czy ten porządek jest liniowy?
+]
+
++ #[ zwrotność:
+
+$forall (x, y) in RR^2: x <= x and y <= y => (x, y)R(x, y)$
+]
+
++ #[ antysymetryczność:
+
+$forall (x, y), (x', y') in RR^2: (x, y)R(x', y') and (x', y')R(x, y) => \
+(x <= x' and y <= y') and (x' <= x and y' <= y) => (x=x' and y=y') => (x,
+y)=(x', y')$
+]
+
++ #[ przechodność:
+
+$forall (x, y), (x', y'), (x'', y'') in RR^2:
+(x, y)R(x', y') and (x', y')R(x'', y'') => \
+(x <= x' <= x'' and y <= y' <= y'') => (x <= x'') and (y <= y'') =>
+(x, y)R(x'', y'')
 $
-a &in (-infinity, 1) union (4, +infinity) &<=> abs([a]) = 1 \
-a &in {1, 4} &<=> abs([a]) = 2 \
-a &in (1, 4) &<=> abs([a]) = 3 \
+]
+
+
+#subproblem[
+  Znajdź zbiory minorant i majorant oraz kresy zbiorów \
+  $A = {(1, 2), (3, 1)}$, $B = {(x, y): x^2 + y^2 <= 9}$.
+]
+
+#columns()[
+#image("images/im16.png")
+Zbiór majorant $A = angle.l 3, +infinity) times angle.l 2, +infinity)$ \
+Zbiór minorant $A = (-infinity, 1 angle.r times (-infinity, 1 angle.r$ \
+$sup A = (3, 2)$ \
+$inf A = (1, 1)$
+
+#colbreak()
+#image("images/im17.png", width: 88%)
+Zbiór majorant $B = angle.l 3, +infinity) times angle.l 3, +infinity)$ \
+Zbiór minorant $B = (-infinity, -3 angle.r times (-infinity, -3 angle.r$ \
+$sup B = (3, 3)$ \
+$inf B = (-3, -3)$
+]
+
+#subproblem[
+  Czy zbiory $A$ i $B$ mają elementy największe i najmniejsze oraz minimalne i
+  maksymalne?
+]
+
+Zbiory $A$ i $B$ nie mają elementów największych i najmniejszych.\
+Oba elementy zbioru $A$ są minimalne i maksymalne. \
+Elementy minimalne zbioru $B$ to łuk okręgu od $(-3,0)$ do $(0,-3)$
+a maksymalne to łuk od $(3,0)$ do $(0,3)$.
+
+#problem[
+  Niech $S = (RR^2, "gr"S, RR^2)$, gdzie: $(x_1, y_1)S(x_2, y_2) <=>
+  ln(1+ x_1^2 + y_1^2) = ln(1 + x_2^2 + y^2_2)$.
+
+  Czy tak określona relacja $S$ jest porządkiem w $RR^2$? \
+  Czy jest to relacja równoważności?
+]
+
+Łatwo zauważyć, że $S$ jest zwrotna, symetryczna i przechodnia, czyli jest to
+relacja równoważności.
+
+#problem[
+  W zbiorze punktów płaszczyzny $RR^2$ określamy relację $prec.eq$:
+  $
+    [(x_1, y_1) prec.eq (x_2, y_2)] <=> (x_1 < x_2 or (x_1 = x_2 and y_1 <=
+  y_2)).
+  $
+  Wykaż, że $prec.eq$ porządkuje zbiór $RR^2$. Czy jest to porządek totalny w
+  $RR^2$?
+]
+
++ #[
+  zwrotność
+
+$forall (x,y) in RR^2: (x = x and y <= y) => x prec.eq x$
+]
+
++ #[
+  antysymetryczność
+
+$forall (x_1, y_1), (x_2, y_2) in RR^2: \ 
+(x_1 < x_2 or (x_1 = x_2 and y_1 <= y_2)) and 
+(x_2 < x_1 or (x_2 = x_1 and y_2 <= y_1) => \
+x_1 = x_2 and y_1 <= y_2 and y_2 <= y_1 => (x_1, y_1) = (x_2, y_2)$
+]
+
++ #[
+przechodność
+
+$forall (x_1, y_1), (x_2, y_2), (x_3, y_3) in RR^2: \
+(x_1 < x_2 or (x_1 = x_2 and y_1 <= y_2)) and 
+(x_2 < x_3 or (x_2 = x_3 and y_2 <= y_3) => \
+(x_1 <= x_2 < x_3) or (x_1 < x_2 <= x_3) or (x_1 = x_2 = x_3 and y_1 <= y_2 <=
+y_3) => \
+x_1 < x_3 or (x_1 = x_3 and y_1 <= y_3) => (x_1, y_1) prec.eq (x_3, y_3)
 $
+]
+
+$prec.eq$ jest porządkiem totalnym w $RR^2$, ponieważ dla każdych dwóch
+
+$(x_1,y_1), (x_2, y_2): \
+(x_1, y_1) prec.eq (x_2, y_2) or (x_2, y_2) prec.eq (x_1, y_1) or 
+(x_1, y_1) = (x_2, y_2)$
+
+#problem[
+  Dany jest uporządkowany zbiór $(QQ, <=)$ oraz podzbiór $A={x: x = 1/n + 1/m,
+  n, m in NN_+}$. Znajdź kresy zbioru $A$ oraz element największy i element
+  najmniejszy (o ile istnieją). Czy zbiór $A$ stanowi łańcuch?
+]
+
+$0 < 1/n + 1/m <= 2$
+
+$sup A = 2$, jest to też element największy
+
+$inf A = 0$, elementu najmniejszego nie ma
+
+$A$ jest łańcuchem, ponieważ $forall x, y in A: x <= y or y <= x or x = y$
+
+
+#problem[
+  Niech $X={1, ..., n} (n > 2)$. Rozważmy rodzinę $Y$ tych podzbiorów zbioru
+  $X$, które są niepuste i mają co najwyżej $n-1$ elementów. Wyznacz elementy
+  minimalne i maksymalne zbioru $Y$ względem relacji inkluzji. Czy $Y$ ma
+  element największy lub element najmniejszy?
+]
+
+Elementy minimalne to podzbiory jednoelementowe, a elementy maksymalne\ to
+podzbiory $n-1$ elementowe. Nie ma elementu najmniejszego i największego.
+
+#problem[
+  Niech będzie dany zbiór uporządkowany $(X, subset)$, gdzie \ 
+  $X = {[x, x+a] times [y, y+a]: x, y, a in RR, a >= 0}$ oraz zbiór \
+  $A = {[1, 4] times [1, 4]; [2, 5] times [2, 5]; [2, 5] times [3, 6]; [2, 6] 
+  times [2, 6]} subset X$.
+
+  Wyznacz (o ile istnieją) elementy najmniejsze, największe, minimalne,
+  maksymalne, zbiory minorant, majorant oraz kres dolny i górny zbioru $A$
+  względem zadanego porząku w $X$.
+]
+
+#image("images/im18.png", width: 40%)
+
+Elementy maksymalne to $[1,4] times [1,4]$ i $[2, 6] times [2, 6]$. 
+Kres górny to $[1,6] times [1,6]$, a zbiór majorant to wszystkie kwadraty, 
+w których się on zawiera. Element najmniejszy nie istnieje.
+
+Elementy minimalne to $[1,4]times[1,4]$, $[2,5]times[2,5]$ i $[2,5]times[3,6]$.
+Zbiór minorant to wszystkie kwadraty, które zawierają się w $[2,4]times[3,4]$.
+Element najmniejszy i kres dolny nie istnieją.
