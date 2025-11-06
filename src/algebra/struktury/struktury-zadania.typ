@@ -55,10 +55,62 @@ $a, b, c in ZZ$
   $(RR, co)$ jest grupą? Czy jest grupą para $(RR without {-1}, co)$?
 ]
 
++ #[łączność: $forall x, y, z in RR: (x co y) co z = x co (y co z)$
+$
+(x + y + x y) + z + (x + y + x y)z &= x + (y + z + y z) + x ( y + z + y z)\
+x + y + x y + z + x z + y z + x y z &= x + y + z + y z + x y + x z + x y z\
+$
+]
+
++ #[element neutralny: $exists e in RR: forall x in RR: x co e = x = e co x$
+$
+x + e + x e &= x = e + x + e x\
+e + x e &= 0 \
+e (1 + x) &= 0 \
+e = 0 &or x = -1
+$
+]
+  W $(RR, co)$ nie ma elementu neutralnego, czyli nie jest to grupa, ale w $(RR
+without {-1}, co)$ jest element neutralny ($e = 0$).
+
++ #[element symetryczny: $forall x in RR without {-1}: exists x' in RR without
+  {-1}: x co x' = 0 = x' co x$
+$
+x + x' + x x' &= 0 &= x' + x + x' x \
+x'(1 + x) &= -x \
+x' &= (-x)/(1+x)\
+$
+]
+
+$(RR without {-1}, co)$ jest grupą.
+
 #problem[
   W zbiorze liczb całkowitych określamy działanie $x co y := x + y + 2$. Czy
   $(ZZ, co)$ jest grupą?
 ]
+
++ #[ łączność: $forall x, y, z in ZZ: (x co y) co z = x co (y co z)$
+$
+(x + y + 2) + z + 2 &= x + (y + z + 2) + 2
+$
+]
+
++ #[ element neutralny: $exists e in ZZ: forall x in ZZ: x co e = x = e co x$
+$
+x + e + 2 &= x = e + x + 2\
+e &= -2
+$
+]
+
++ #[ element symetryczny: $forall x in ZZ: exists x' in ZZ: x co x' = -2 = x' co
+  x$
+$
+  x + x' + 2 &= -2 = x' + x + 2 \
+ x' &= -x - 4
+$
+]
+
+$(ZZ, co)$ jest grupą.
 
 #problem[
   Które z następujących zbiorów liczb są grupami:
