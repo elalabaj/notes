@@ -7,21 +7,48 @@
   Sprawdź jakie własności mają w $ZZ$ następujące działania:
 ]
 
+$a, b, c in ZZ$
+
 #subproblem[
   $a co b = a - b$
 ]
+
+#set math.cases(reverse: true)
+
++ #strike[łączność]: $(a - b) - c != a - (b - c)$
++ #strike[element neutralny]: $exists e in ZZ: a - e = a = e - a => -e=0=e-2a$
+  sprzeczność
++ #strike[element symetryczny]: nie ma elementu neutralnego
++ #strike[przemienność]: $a - b = b - a => a = b$
 
 #subproblem[
   $a co b = a^2 + b^2$
 ]
 
++ łączność: $(a^2 + b^2) + c^2 = a^2 + (b^2 + c^2)$
++ #strike[element neutralny]: $exists e in ZZ: a^2 + e^2 = a = e^2 + a^2$
+  sprzeczność
++ #strike[element symetryczny]: nie ma elementu neutralnego
++ przemienność: $a^2 + b^2 = b^2 + a^2$
+
 #subproblem[
   $a co b = 2(a+b)$
 ]
 
++ #strike[łączność]: $2(2(a+b)+c) = 2(a + 2(b+c))$ \ $4a+4b+2c = 2a+4b+4c$ sprzeczność
++ #strike[element neutralny]: $exists e in ZZ: 2(a+e) = a = 2(e+a) => 2e=-a$
+  sprzeczność
++ #strike[element symetryczny]: nie ma elementu neutralnego 
++ przemienność: $2(a + b) = 2(b+a)$
+
 #subproblem[
   $a co b = - a-b$
 ]
+
++ #strike[łączność]: $-(-a - b)-c = -a - (-b -c)$ sprzeczność
++ #strike[element neutralny]: $exists e in ZZ: -a-e = a = -e-a => e = -2a$ sprzeczność
++ #strike[element symetryczny]: nie ma elementu neutralnego
++ przemienność: $-a-b = -b-a$
 
 #problem[
   W zbiorze liczb rzeczywistych określamy działanie $x co y := x+y+x y$. Czy
