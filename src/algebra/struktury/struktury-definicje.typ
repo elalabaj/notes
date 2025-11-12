@@ -30,6 +30,7 @@ $(A, co), A != emptyset$
 Struktura $(A, co)$ to #h[grupa #text(fill: red)[(przemienna/abelowa)]] 
 gdy spełnione są warunki:
 
++ #h[działanie wewnętrzne]: $forall x, y in A: x co y in A$
 + #h[łączność]: $forall x, y, z in A: (x co y) co z = x co (y co z)$
 + #h[element neutralny]: $exists e in A: x co e = x = e co x$ (jest jeden)
 + #h[element symetryczny]: $forall x in A : exists x' in A: 
@@ -38,7 +39,7 @@ x co x' = e = x' co x$ (dla każdego $x$ jest jeden)
 
 = Pierścienie
 
-$P != emptyset$, $co, *$ - działania wewnętrzne w zbiorze $P$
+$P != emptyset$, $co, *$ - #h[działania wewnętrzne] w zbiorze $P$
 
 Struktura $(P, co, *)$ to #h[pierścień #text(fill: red)[(przemienny)]] gdy spełnione są warunki:
 
