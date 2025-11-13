@@ -559,7 +559,10 @@ Istnieje element neutralny względem mnożenia ($1 = 1 + 0 sqrt(3)$).
 Dla każdego $x=a + b sqrt(3) != 0$ istnieje element odwrotny $x'$: 
 
 $(a + b sqrt(3)) dot x' = 1 => x' = 1/(a + b sqrt(3)) = (a - b sqrt(3))/(a^2 -
-3b^2) = a/(a^2 - 3b^2) - b/(a^2 -3b^2) sqrt(3)$.
+3b^2) = a/(a^2 - 3b^2) - b/(a^2 -3b^2) sqrt(3), a^2 - 3b^2 != 0$.
+
+$a^2 - 3b^2 = 0 => a^2 = 3b^2 => a = plus.minus b sqrt(3)$ sprzeczność, bo $a, b
+in QQ$
 
 
 Z tego wynika, że $(B, +, dot)$ jest ciałem.
@@ -679,19 +682,93 @@ $(2^X, triangle, inter)$ jest ciałem.
   ciałem? 
 ]
 
-#problem[
+Tak zdefiniowane dodawanie to dodawanie wektorów w $RR^2$. Łatwo zauważyć, 
+że jest to grupa abelowa, z elementem neutralnym $(0, 0)$.
 
+Łatwo zauważyć również, że mnożenie jest wewnętrzne.
+Łączność mnożenia i rozdzielność względem dodawania można pokazać ale to dużo
+liczenia.
+
+Elementem neutralnym względem mnożenia jest $(1, 0)$:
+$
+(x, y) dot (1, 0) = (x dot 1 + p dot y dot 0, x dot 0 + y dot 1) = (x, y)
+$
+Dla każdego $(x, y) != (0, 0)$ znajdźmy element odwrotny $(x', y')$.
+$
+x x' + p y y' = 1 and x y' + x' y = 0 \
+y' = -x' y/x \
+x x' + p y dot (-x' y/x) = 1 \
+x' (x - (p y^2)/x) = 1 \
+$
+
+Jeżeli $x - (p y^2)/x = 0$ to element odwrotny nie istnieje, czyli struktura nie
+może być ciałem.
+
+$x - (p y^2)/x = 0 <=> x^2 = p y^2$. Równanie to jest sprzeczne tylko dla $p<0$.
+W tym wypadku:
+$
+x' = 1/(x - (p y^2)/x) = x/(x^2 - p y^2) \
+y' = - x/(x^2 - p y^2) dot y/x = - y/(x^2 - p y^2)
+$
+_Interpretacja liczbami zespolonymi_:
+
+Para $(x, y)$ reprezentuje liczbę zespoloną $x + y sqrt(-p) dot i$ ($x + y
+sqrt(p)$ dla $sqrt(-1)=i$).
+
+$
+(x_1, y_1) + (x_2, y_2) = (x_1 + y_1 sqrt(-p) dot i) + (x_2+y_2 sqrt(-p) dot i) 
+= (x_1 + x_2) + (y_1 + y_2) sqrt(-p) dot i \
+(x_1, y_1) dot (x_2, y_2) = (x_1 + y_1 sqrt(-p) dot i) dot (x_2 + y_2 sqrt(-p)
+dot i) = \ (x_1 x_2 + y_1 y_2 (-p) i^2) + (x_1 y_2 + x_2 y_1) sqrt(-p) dot i = 
+(x_1 x_2 + p y_1 y_2) + (x_1 y_2 + x_2 y_1) sqrt(-p) dot i 
+$
+
+Czyli mamy doczynienia z liczbami zespolonymi, przyczym oś $Im$ została
+przeskalowana o $sqrt(-p)$.
+
+#problem[
+   
 ]
 
 #subproblem[
   Wykaż, że zbiór $A={x=m+n i: m, n in ZZ}$ jest grupą ze względu na dodawanie.
 ]
 
+$(m_1 + n_1 i) + (m_2 + n_2 i) = (m_1 + m_2) + (n_1 + n_2) i in A$
+
+$A subset CC$ więc zachodzi łączność oraz istnieje element neutralny $0 in A$.
+
+Dla każdego $x=m+n i in A$ istnieje element symetryczny $x' = -m-n i in A$.
+
 #subproblem[
   Wykaż, że zbiór $B={x = 2^n 3^m: m, n in ZZ}$ jest grupą ze względu na
   mnożenie.
 ]
 
+Wewnętrzność, i łączność oczywista.
+
+Element neutralny to $1 = 2^0 dot 3^0$.
+
+Dla każdego $x = 2^n 3^m in B$ istnieje element symetryczny $x' = 2^(-n) 3^(-m)
+in B$.
+
 #subproblem[
   Udowodnij, że $A$ i $B$ są izomorficzne.
 ]
+
+Niech $h:A -> B$ będzie odwozorwaniem grupy $(A, +)$ w grupę $(B, dot)$: 
+
+$h(n + m i) = 2^n 3^m$
+
+
+Dla każdych $x, y in A, x = a + b i, y = c + d i$:
+
+$h(x+y) = h((a+c) + (b+d)i) = 2^(a+b) dot 3^(b+d)$
+
+$h(x) dot h(y) = h(a + b i) dot h(c + d i) = 2^a 3^b dot 2^c 3^d = 
+2^(a+b) dot 3^(b+d)$
+
+Czyli $h$ jest homomorfizmem.
+
+Każdy element z $B$ jest osiągalny i każdemy odpowiada tylko jeden element z
+$A$, więc jest to homomorfizm bijektywny, czyli $A$ i $B$ są izomorficzne.
