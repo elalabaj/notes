@@ -67,7 +67,7 @@ forall z in CC: exists (x, y) in RR^2: h((x, y))=z
 $
 Niech $z = a + b i, a,b in RR$. Wtedy:
 $
-(x, y) = (a, b/sqrt(-p)) => h(x, y) = a + sqrt(-p) dot b/sqrt(-p) dot i = a + b
+(x, y) = (a, b/sqrt(-p)) => h((x, y)) = a + sqrt(-p) dot b/sqrt(-p) dot i = a + b
 i = z
 $
 
