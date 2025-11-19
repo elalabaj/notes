@@ -24,21 +24,27 @@ element odwrotny.
 $forall (x, y) in RR^2: (x, y) != (0, 0) => exists (x', y') in RR^2: (x, y) dot
 (x', y') = (1, 0) <=> $
 $
-x x' + p y y' = 1 and x y' + x' y = 0 \
-y' = - (x' y)/x, "bo" x != 0 \
-x x' + p y dot (- (x' y)/x) = 1 \
-x' (x - (p y^2)/x) = 1
+x x' + p y y' = 1 &and x y' + x' y = 0
+$
+Rozważymy osobno przypadki gdy $x=0$ i $x!=0$.
+$
+x != 0 =>& y' = - (x' y)/x \
+&x x' + p y dot (- (x' y)/x) = 1 \
+&x' (x - (p y^2)/x) = 1
 $
 
 Jeżeli $x-(p y^2)/x = 0$, to dochodzimy do sprzeczności, czyli element odwrotny
 nie istnieje.
 
-Równanie $x-(p y^2)/x = 0 <=> x^2 = p y^2$ ma rozwiązania tylko dla $p >= 0$.
-Wtedy $(RR^2, +, dot)$ na pewno nie jest ciałem. 
+Równanie $x-(p y^2)/x = 0 <=> x^2 = p y^2, x!=0$ ma rozwiązania tylko dla $p >= 0$.
+Wtedy $(RR^2, +, dot)$ na pewno nie jest ciałem, ponieważ element odwrotny musi
+istnieć dla *każdego* $(x, y)$ oprócz zera.
+
 Pozostaje rozważyć $p<0$.
 
-Rozważmy $h: RR^2 -> CC$ takie, że $ h((x, y)) = x + sqrt(-p) y i$. Wtedy
-$forall (x_1, y_1), (x_2, y_2) in RR^2:$
+Rozważmy $h: RR^2 -> CC$ takie, że $ h((x, y)) = x + sqrt(-p) y i$. 
+
+Wtedy $forall (x_1, y_1), (x_2, y_2) in RR^2:$
 $
 h((x_1, y_1) + (x_2, y_2)) = h((x_1 + x_2, y_1 + y_2)) = (x_1 + x_2) +
 sqrt(-p)(y_1 + y_2) i =  \ 
@@ -53,7 +59,7 @@ h((x_1, y_1) dot (x_2, y_2)) = h((x_1 x_2 + p y_1 y_2, x_1 y_2 + x_2 y_1)) = \
 = (x_1 + sqrt(-p) y_1 i)(x_2 + sqrt(-p) y_2 i) = h((x_1, y_1)) dot h((x_2, y_2))
 $
 
-Ponadto $h$ jest bijeckją, ponieważ jest różnowartościowa:
+Ponadto $h$ jest bijekcją, ponieważ jest różnowartościowa:
 $
 forall (x_1, y_1), (x_2, y_2) in RR^2:
 h((x_1, y_1)) = h((x_2, y_2)) => x_1 + sqrt(-p) y_1 i = x_2 + sqrt(-p) y_2 i =>\
