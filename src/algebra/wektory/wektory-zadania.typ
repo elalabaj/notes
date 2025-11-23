@@ -14,26 +14,7 @@ dot.circle 0 =
   Sprawdź, że $(A, plus.circle, dot.circle)$ jest ciałem.\
 ]
 
-$h: A -> ZZ slash 2, h(0) = [0], h(1) = [1]$ \
-$x, y in A$
-$
-h(x+y) = cases(
-  h(0) = [0] = [0] + [0]", gdy" (x, y) = (0, 0),
-  h(1) = [1] = [0] + [1]", gdy" (x, y) = (0, 1),
-  h(1) = [1] = [1] + [0]", gdy" (x, y) = (1, 0),
-  h(0) = [0] = [1] + [1]", gdy" (x, y) = (1, 1)
-) = h(x) + h(y)
-$
-$
-h(x dot y) = cases(
-  h(0) = [0] = [0] dot [0]", gdy" (x, y) = (0, 0),
-  h(0) = [0] = [0] dot [1]", gdy" (x, y) = (0, 1),
-  h(0) = [0] = [1] dot [0]", gdy" (x, y) = (1, 0),
-  h(1) = [1] = [1] dot [1]", gdy" (x, y) = (1, 1)
-) = h(x) dot h(y)
-$
-Ponadto $h$ jest bijekcją $=> (A, plus.circle, dot.circle)$ jest izomorficzne do
-$(ZZ slash 2, plus, dot)$ więc jest ciałem.
+To samo co $(ZZ slash 2, +, dot)$, które jest ciałem.
 
 #subproblem[
   W zbiorze $A^2$ określamy działanie dodawania jako: $(a, b) + (c, d) = (a
@@ -124,36 +105,36 @@ alpha(3x_1 + 2y_1 - 8z_1) + beta(3x_2 + 2y_2 - 8z_2) = alpha dot 0 + beta dot
 #problem[
 Które z następujących podzbiorów przestrzeni wektorowej $F(RR, RR)$ są jej podprzestrzeniami:
 ]
-#subproblem[$A = {f : f(2) = f(7)}$]
+#subproblem[$A = {f : f(2) = f(7)} checkmark$]
 $f, g in A, alpha in RR, (f + g) in^? A, alpha dot f in^? A$ \
 $(f+g)(2) = f(2) + g(2) = f(7) + g(7) = (f+g)(7)$ \
 $(alpha dot f)(2) = alpha f(2) = alpha f(7) = (alpha dot f)(7)$
 
-#subproblem[$B = {f : f(7) = 2 + f(1)}$]
+#subproblem[$B = {f : f(7) = 2 + f(1)} crossmark$]
 $f, g in B, alpha in RR, (f + g) in^? B, alpha dot f in^? B$ \
 $(f+g)(7) = f(7) + g(7) = 2 + f(1) + 2 + g(1) = 4 + (f+g)(1)$ sprzeczność
 
-#subproblem[$C = {f : f(x_0) = 3}$]
+#subproblem[$C = {f : f(x_0) = 3} crossmark$]
 $f, g in C, alpha in RR, (f + g) in^? C, alpha dot f in^? C$ \
 $(f+g)(x_0) = f(x_0) + g(x_0) = 3 + 3 = 6$ sprzeczność
 
 #problem[
 Które z następujących podzbiorów przestrzeni wektorowej $RR[x]$ (przestrzeń wielomianów nad ciałem $RR$) są jej podprzestrzeniami:
 ]
-#subproblem[$A = {w : w(0)w(1) = 0}$]
-$A = {w: w(x) = x(x-1)q(x)}$ \
-$x(x-1)q(x), x(x-1)p(x) in A, alpha in RR$\
-$x(x-1)q(x) + x(x-1)p(x) = x(x-1)(q(x) + p(x)) in A$ \
-$alpha dot x(x-1)q(x) = x(x-1)(alpha q(x)) in A$
 
-#subproblem[$B = {w : "stopień" w <= 6}$]
+#subproblem[$A = {w : w(0)w(1) = 0} crossmark$]
+Kontrprzykład: $p(x) = x in A , q(x) = x-1 in A$\
+$(p+q)(x) = x + x-1 = 2x-1$\
+$(p+q)(0)(p+q)(1) = -1 dot 1 = -1$
+
+#subproblem[$B = {w : "stopień" w <= 6} checkmark$]
 $q(x), p(x) in B, alpha in RR$ \
 $deg (q + p) <= 6 and deg (alpha q) <= 6$
 
-#subproblem[$C = {w : "stopień" w = 6}$]
+#subproblem[$C = {w : "stopień" w = 6} crossmark$]
 Kontrprzykład: $x^6 + (-x^6) = 0 in.not C$
 
-#subproblem[$D = {w : w(x) "jest podzielne przez" x^2 + 1}$]
+#subproblem[$D = {w : w(x) "jest podzielne przez" x^2 + 1} checkmark$]
 $D = {w: w(x) = (x^2+1)q(x)}$ \
 $(x^2+1)q(x), (x^2+1)p(x) in D, alpha in RR$\
 $(x^2+1)q(x) + (x^2+1)p(x) = (x^2+1)(q(x) + p(x)) in A$ \
@@ -183,28 +164,19 @@ cases(x=0, y=0, z=0) $
 stanowią bazę w $RR^3$.]
 
 #columns[
-$ cases(2x+2y = 1,3x+3z=1,-x+z=1) $
+$ cases(2x+2y = 1,3x+3z=1,-x+z=1) <=> cases(x=-1/3, y=5/6, z=2/3) $
 $ x &= z - 1 \
   3z - 3 + 3z &= 1 \
-  z &= 2/3 \
-  x &= -1/3 \
-  y &= 1/2 - x = 5/6
+  6z &= 4 \
 $
 #colbreak()
-$ cases(2x+2z=1, -7x+2y-z=1, 2x+4y+5z=1) $
+$ cases(2x+2z=1, -7x+2y-z=1, 2x+4y+5z=1) <=> cases(x=-1/2, y=-3/4, z=1) $
 $
-  2x + 2z -14x + 4y - 2z &= 3 \
-  -12x + 4y &= 3 \ 
-  2x + 2z - 2x - 4y - 5z &= 0 \
-  -3z - 4y &= 0 \
-  -14x + 4y - 2z -2x - 4y - 5z &= 1 \
-  -16x - 7z &= 1 \
-  -12x - 3z &= 3 \ 
-  -16x - 7z + 16x + 4z &= 1 - 4 \
-  -3z &= -3 \
-  z &= 1\
-  x &= -1/2\
-  y &= -3/4
+  x &= 1/2 - z \
+  -7/2 +7z + 2y - z &= 1\
+  y&= 9/4 - 3z \
+  1 - 2z + 9 - 12z + 5z &= 1 \
+  -9z &= -9 \
 $
 ]
 
@@ -285,6 +257,7 @@ $
 $(0, 1, -1) + (-1, 0, 1) + (1, -1, 0) = (0, 0, 0) => u, v, w$ są liniowo zależne
 
 #subproblem[Podaj wymiar oraz bazę podprzestrzeni generowanej przez te wektory.]
+
 Wymiar $2$, baza to dowolne dwa z $u, v, w$.
 
 #problem[
