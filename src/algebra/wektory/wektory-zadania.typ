@@ -386,14 +386,44 @@ b p + 2 c p - p + 1 = 0
 $
 
 $
-p != 0 and p != 1 =>\
+p != 0 and p != 1 =>&\
 a &= -1\
 c &= -1-b\
-b p - 2 b + 1 + b - 3 + 2p &= 0\
-b p -2 p -2 b p - p +1 &= 0 "dodajemy stronami"\ 
-cancel(b p) - 2 b + 1 + b - 3 + cancel(2p) + cancel(b p) -cancel(2 p) - cancel(2 b p) - p +1 &= 0\
--b-1&=p
+b p - 2 b + 1 + b - 3 + 2p &= 0 <=> -b p -3p +1 = 0\
+b p -2 p -2 b p - p +1 &= 0 <=> b p + 2p - b-2 = 0\ 
+-p-b-1&=0\
+b &= -p-1\
+c &= -1 + p +1 = p\
+p(-1+p-1+p) &= p dot 2p = 0 "sprzeczność"\
+p=0 =>&\
+1&=0 "sprzeczność"\
 $
+$
+p=1 =>&\
+a-b-c&=0\
+b-2b-c-3+2&=0\
+-b-c-1&=0\
+b+2c-1+1&=0\
+a&=-1\
+c&=1\
+b&=-2
+$
+Dla $p = 1$, $U="Lin"{(i, 0), (-1-i, 1), (-1-i, 2)}$. Niech $a, b, c in RR$.
+$
+a(i, 0) + b(-1-i, 1) + c(-1-i, 2) = (0,0) <=> \
+cases(
+a i - b - b i - c - c i = 0,
+b + 2 c = 0
+)\
+$
+$
+b &= -2c\
+a i + 2c + 2 c i - c - c i &= 0\
+a i + c i + c &= 0\
+a = c &= 0\
+b &= 0
+$
+$dim U = 3$
 
 #problem[
 Wyznacz bazę przestrzeni $(P_(2n), +, dot)$ nad ciałem $RR$, gdzie $P_(2n) := {w in RR[x]_(2n) : w(x) = w(-x)}$.
@@ -437,8 +467,45 @@ $A$ jest podprzestrzenią $RR[x]_2$ \
 $a x^2 + b x - a = a(x^2 - 1) + b(x) => (x^2-1,x)$ to baza $A$
 
 #problem[
-Wykaż, że zbiór liczb postaci ${a + b sqrt(2) + c sqrt(3) + d sqrt(6) + e sqrt(12) : a, b, c, d, e in QQ}$ tworzy przestrzeń wektorową nad ciałem liczb wymiernych. Znajdź bazę tej przestrzeni.
+Wykaż, że zbiór liczb postaci $V={a + b sqrt(2) + c sqrt(3) + d sqrt(6) + e sqrt(12) : a, b, c, d, e in QQ}$ tworzy przestrzeń wektorową nad ciałem liczb wymiernych. Znajdź bazę tej przestrzeni.
 ]
+
+$V subset RR$, a $RR(QQ)$ jest przestrzenią wektorową, więc wystarczy pokazać,
+że $V(QQ)$ jest podprzestrzenią wektorową $RR$.
+
+$forall v, w in V: forall alpha, beta in QQ: alpha v + beta w in^? V$
+
+Niech $v=a_1 + b_1 sqrt(2) + c_1 sqrt(3) + d_1 sqrt(6) + e_1 sqrt(12), 
+w=a_2 + b_2 sqrt(2) + c_2 sqrt(3) + d_2 sqrt(6) + e_2 sqrt(12),$ 
+$alpha, beta in QQ$
+$
+alpha v + beta w = (alpha a_1+beta a_2) + (alpha b_1+beta b_2) sqrt(2) + (alpha
+c_1+beta c_2) sqrt(3) \
++ (alpha d_1+beta d_2) sqrt(6) + (alpha e_1+beta e_2) sqrt(12) in V
+$
+
+$"Lin"{1, sqrt(2), sqrt(3), sqrt(6), sqrt(12)} = V$, co wynika wprost z
+definicji $V$. Wystarczy sprawdzić, czy elementy zbioru są liniowo niezależne. 
+$sqrt(12) = sqrt(4 dot 3) = 2 sqrt(3)$, więc $sqrt(12)$ możemy wyrzucić ze
+zbioru. Pozostaje ${1, sqrt(2), sqrt(3), sqrt(6)}$. Niech $a, b, c, d in RR$.
+$
+a + b sqrt(2) + c sqrt(3) + d sqrt(6) &= 0 <=> \
+a + b sqrt(2) + sqrt(3) (c + d sqrt(2)) &= 0 \
+a + b sqrt(2) &= - sqrt(3) (c + d sqrt(2)) \
+$
+Rozważmy dwa przypadki. Pierwszy przypadek, gdy $c + d sqrt(2) != 0$:
+$
+-sqrt(3) &= (a + b sqrt(2))/(c + d sqrt(2)) \
+-sqrt(3) &= ((a + b sqrt(2))(c - d sqrt(2)))/(c^2 - 2d) \
+-sqrt(3) &= (a c - 2 b d + (b c - a d)sqrt(2))/(c^2-2d) "sprzeczność"\
+$
+Drugi przypadek, gdy $c + d sqrt(2) = 0$:
+$
+a + b sqrt(2) = -sqrt(3)(c + d sqrt(2)) = 0 \
+a = b = c = d = 0
+$
+Wektory są liniowo niezależne, więc ${1, sqrt(2), sqrt(3), sqrt(6)}$ jest bazą
+$V$.
 
 #problem[
 Wiedząc, że wektory $u, v, w$ stanowią bazę przestrzeni liniowej $V$ (nad ciałem $RR$), zbadaj, który z poniższych układów także stanowi jej bazę:
@@ -518,17 +585,81 @@ każdego $i = 0, 1, ..., n$.
 Niech $V = F(RR, RR)$, a $V_1, V_2$ będą podzbiorami $V$ składającymi się, odp., z odwzorowań nieparzystych oraz parzystych. Wykaż, że $V_1, V_2$ są podprzestrzeniami przestrzeni wektorowej $V$ oraz, że $V = V_1 plus.circle V_2$.
 ]
 
+$V_1 = {f: f(x) = -f(-x)}$, $V_2 = {f: f(x) = f(-x)}$
+
+$
+forall f, g in V_1: forall alpha, beta in RR: alpha f + beta g in^? V_1\
+(alpha f + beta g)(x) = alpha f(x) + beta g(x) = alpha (-f(-x)) + beta (-g(-x))
+= -(alpha f + beta g)(-x) \
+forall f, g in V_2: forall alpha, beta in RR: alpha f + beta g in^? V_2\
+(alpha f + beta g)(x) = alpha f(x) + beta g(x)= alpha f(-x) + beta g(-x) = (alpha f + beta g)(-x)
+$
+
+$V = V_1 plus.circle V_2 <=> V_1 inter V_2 = {overline(0)} = {f(x) = 0}$
+$
+f in V_1 inter V_2 <=> f(x) = -f(-x) = f(-x) => f(-x) = 0 => f(x) = 0
+$
+
 
 #problem[
 Niech $V = F(RR, RR)$. Oznaczmy przez $F_a$ zbiór odwzorowań zerujących się w punkcie $a$.
 ]
+
+$F_a := {f: f(a) = 0}$
+
 #subproblem[Wykaż, że $F_a$ jest podprzestrzenią przestrzeni $V$]
+
+$
+forall f, g in F_a: forall alpha, beta in RR: alpha f + beta g in^? F_a\
+(alpha f + beta g)(a) = alpha f(a) + beta g(a) = alpha dot 0 + beta dot 0 = 0
+=> alpha f + beta g in F_a
+$
+
 #subproblem[Udowodnij, że jeżeli $a eq.not b$, to $V = F_a + F_b$, ale suma ta
 nie jest prosta.]
+
+$forall f in F(RR, RR): exists f_a in F_a : exists f_b in F_b: f = f_a + f_b $
+(?)
+
+Niech $f_a (x) := cases(f(x)&", gdy" x !=a , 0&", gdy" x = a), f_b (x) =
+cases(0&", gdy" x != a, f(x)&", gdy" x=a)$. 
+
+Wtedy $f_a (x) + f_b (x) = f(x)$.
+
+$F_a inter F_b = {f: f(a) = f(b) = 0} != {f(x)=0}$, ponieważ np. \ $f(x) =
+2(x-a)(x-b), g(x) = 3(x-a)(x-b) in F_a inter F_b$, więc $F_a + F_b$ nie jest
+sumą prostą.
 
 #problem[
 Niech $X$ będzie przestrzenią wektorową nad ciałem $K$ oraz $U$ i $V$ jej podprzestrzeniami.
 ]
 #subproblem[Wykaż, że $U union V$ jest podprzestrzenią $X$ wtedy i tylko wtedy,
 gdy $U subset V$ lub $V subset U$.]
+
+$(arrow.l.double)$
+
+$U subset V => U union V = V$, a $V$ jest podprzestrzenią $X$ \
+$V subset U => U union V = U$, a $U$ jest podprzestrzenią $X$ \
+
+$(=>)$
+
+Hp: $exists u in U without V, v in V without U: u + v in U union V$
+
+$u+v in U union V => u+v in U or u+v in V$\
+
+Pierwszy przypadek: $u+v in U$. \
+Ponieważ $U$ jest podprzestrzenią a $u in U$, to $u+v +(-1)u = v in U$
+sprzeczność.
+
+Drugi przypadek: $u+v in V$. \
+Ponieważ $V$ jest podprzestrzenią a $v in V$, to $u+v +(-1)v = u in V$
+sprzeczność.
+
 #subproblem[Sprawdź, czy $"Lin"(U union V) = U + V$.]
+
+$"Lin"{U union V} = {alpha w + beta q: alpha, beta in K, w, q in U union V}$ \
+
+$u in U, alpha in K => alpha u in U$, $v in V, alpha in K => alpha v in V$
+
+$"Lin"{U union V} = {w + q: w, q in U union V} = {u+v: u in U, v in V}$,
+bo w szczególności $u = overline(0)$.
