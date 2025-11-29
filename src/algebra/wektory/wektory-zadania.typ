@@ -180,8 +180,6 @@ $
 $
 ]
 
-
-
 #problem[
 Sprawdź liniową zależność wektorów $sqrt(2)$ i $2$ w przestrzeni $(RR, +, dot)$ nad ciałem $QQ$ oraz w przestrzeni $(RR, +, dot)$ nad ciałem $RR$.
 ]
@@ -289,8 +287,81 @@ Dane są dwa układy wektorów: $B_1 : (1, i, 1+i), (i, -1, 2-i), (0, 0, 3)$ i $
 ]
 #subproblem[Sprawdź, czy któryś z tych układów stanowi bazę przestrzeni
 $CC^3(CC)$ lub $CC^3(RR)$.]
-#subproblem[Jaki wymiar mają przestrzenie $CC^n(CC)$ i $CC^n(RR)$?]
+
+Niech $a + b i, c + d i, e + f i in CC$.
+$
+(a + b i)(1, i, 1+i) + (c + d i)(i, -1, 2-i) + (e + f i)(0, 0, 3) = 0 <=> \
+cases(
+a + b i + c i - d = 0 <=> a-d = b+c = 0,
+a i - b - c - d i = 0 <=> a-d = b+c = 0,
+...
+)\
+=> B_1 "nie jest bazą"\
+(a + b i)(2i, 1, 0) + (c + d i)(2, -i, 1) + (e + f i)(0, 1+i, 1-i) = 0 <=> \
+cases(
+2a i - 2b + 2c + 2d i = 0,
+a + b i - c i + d + e + f i + e i - f = 0,
+c + d i + e + f i - e i + f = 0
+) <=> 
+cases(
+a+d = 0,
+b-c = 0,
+a+d+e-f =0,
+b-c+e+f=0,
+c+e+f = 0,
+d+f-e = 0,
+) <=>
+cases(
+a=0,
+b=0,
+c=0,
+d=0,
+e=0,
+f=0
+)\
+=> "wektory w" B_2 "są liniowo niezależne"
+$
+
+$dim CC^3 (CC) = 3, dim CC^3(RR) = 6$, co pokażemy w *11.b*. Z tego wynika, że 
+$B_2$ jest bazą w $CC^3(CC)$, ale nie w $CC^3(RR)$.
+
+#subproblem[Jaki wymiar mają przestrzenie $CC^n (CC)$ i $CC^n (RR)$?]
+
+Przykładowa baza w $CC^n (CC)$ to $((1, 0, ..., 0), (0, 1, ..., 0), (0, 0, ...,
+1))$, więc $dim CC^n (CC)=n$.
+
+Przykładowa baza w $CC^n (RR)$ to \ $((1, 0, ..., 0), (i, 0, ..., 0), 
+(0, 1, ..., 0), (0, i, ..., 0), (0, 0, ...,1), (0, 0, ..., i))$, \
+więc $dim CC^n (RR)=2n$.
+
 #subproblem[Znajdź współrzędne wektora $(1, 0, 1)$ w bazie z podpunktu a).]
+
+$
+(a + b i)(2i, 1, 0) + (c + d i)(2, -i, 1) + (e + f i)(0, 1+i, 1-i) = (1, 0, 1) <=> \
+cases(
+2a i - 2b + 2c + 2d i = 1,
+a + b i - c i + d + e + f i + e i - f = 0,
+c + d i + e + f i - e i + f = 1
+) <=> 
+cases(
+a+d = 0,
+-b+c = 1/2,
+a+d+e-f =0,
+b-c+e+f=0,
+c+e+f = 1,
+d+f-e = 0,
+) <=>
+cases(
+a=0,
+b=0,
+c=1/2,
+d=0,
+e=1/4,
+f=1/4
+)\
+$
+
+$(1, 0, 1) = [0, 1/2 i, 1/4 + 1/4 i]_(B_2)$
 
 #problem[
 Niech będzie dana następująca podprzestrzeń $U$ przestrzeni wektorowej $CC^2(RR)$ (tj. przestrzeni $CC^2$ nad ciałem liczb rzeczywistych $RR$), gdzie $p$ jest pewną liczbą rzeczywistą:
@@ -300,9 +371,37 @@ $ (3-2p, p-1+(1-p)i) in U. $
 Dla wszystkich takich wartości parametru $p in RR$, wyznacz $dim U$.
 ]
 
+Niech $a, b, c in RR$.
+$
+cases(
+a p i + b p - 2b - b p i - c - c p i = 3 - 2 p,
+a p i - a i + b p + 2 c p = p - 1 + i - p i
+) <=>
+cases(
+a p - b p - c p = 0 <=> p(a-b-c)=0,
+b p - 2b - c - 3 + 2p = 0,
+a p - a - 1 + p = 0 <=> (a+1)(p-1)=0,
+b p + 2 c p - p + 1 = 0
+)
+$
+
+$
+p != 0 and p != 1 =>\
+a &= -1\
+c &= -1-b\
+b p - 2 b + 1 + b - 3 + 2p &= 0\
+b p -2 p -2 b p - p +1 &= 0 "dodajemy stronami"\ 
+cancel(b p) - 2 b + 1 + b - 3 + cancel(2p) + cancel(b p) -cancel(2 p) - cancel(2 b p) - p +1 &= 0\
+-b-1&=p
+$
+
 #problem[
 Wyznacz bazę przestrzeni $(P_(2n), +, dot)$ nad ciałem $RR$, gdzie $P_(2n) := {w in RR[x]_(2n) : w(x) = w(-x)}$.
 ]
+
+$P_(2n) = {a_0 + a_2 x^2 + a_4 x^4 + ... + a_(2n) x^(2n), a_0,... a_(2n) in RR}$
+
+$B = (1, x^2, x^4, ..., x^(2n))$
 
 #problem[
 W przestrzeni wielomianów $RR[x]_2$ dana jest baza $B_1 = (1, x, x^2)$. Wykaż, że układ $B_2 = (1, x-2, (x-2)^2)$ stanowi bazę $RR[x]_2$. Podaj współrzędne wielomianu $P(x) = 2x^2 + 3$ względem obu baz. Czy zbiór $A = {p in RR[x]_2 : p(1) = p'(0)}$ stanowi podprzestrzeń tej przestrzeni? Jeżeli tak, wyznacz jej bazę i wymiar.
@@ -350,8 +449,8 @@ a u-2a v+a w +  3b u+b w + c u+4c v-c w&=0\
 u(a + 3b + c) + v(-2a + 4c) + w(a + b - c) &= 0 <=> $
 $
 cases(
-a &+ 3b &+ c &= 0 \
--2a &&+ 4c &= 0 \
+a &+ 3b &+ c &= 0,
+-2a &&+ 4c &= 0,
 a &+ b &- c &= 0
 ) $
 $
@@ -390,9 +489,35 @@ $ w_i (x) = product_(j=0, j eq.not i)^n (x - x_j)/(x_i - x_j) quad "dla" i = 0, 
 stanowią bazę przestrzeni $RR[x]_n$.
 ]
 
+Wektorów $w_i$ jest tyle samo co $dim RR[x]_n = n+1$, więc wystarczy pokazać, że
+wektory te są liniowo niezależne.
+
+Niech $a_0, a_1, ..., a_n in RR$.
+$
+  a_0 w_0 (x) + a_1 w_1 (x) + ... + a_n w_n (x) =^? 0
+$
+
+Zauważmy, że dla $x = x_i$
+$
+w_i (x_i) = product_(j=0, j != i)^n (x_i - x_j)/(x_i - x_j) = 1,
+$
+
+a dla $x = x_k$, gdzie $k in {0, 1, ..., n}, k != i, w_i (x_k) = 0$, bo 
+występuje takie $j$, że $j=k$ czyli występuje czynnik $(x_k - x_j) = 0$.
+
+Niech $x := x_0$. Wtedy:
+
+$
+  a_0 w_0 (x) + a_1 w_1 (x) + ... + a_n w_n (x) = a_0 dot 1 + a_1 dot 0 + ... +
+a_n dot 0 = a_0 => a_0 = 0
+$
+Analogicznie pokazujemy, podstawiając za $x$ kolejne $x_i$, że $a_i = 0$ dla
+każdego $i = 0, 1, ..., n$.
+
 #problem[
 Niech $V = F(RR, RR)$, a $V_1, V_2$ będą podzbiorami $V$ składającymi się, odp., z odwzorowań nieparzystych oraz parzystych. Wykaż, że $V_1, V_2$ są podprzestrzeniami przestrzeni wektorowej $V$ oraz, że $V = V_1 plus.circle V_2$.
 ]
+
 
 #problem[
 Niech $V = F(RR, RR)$. Oznaczmy przez $F_a$ zbiór odwzorowań zerujących się w punkcie $a$.
