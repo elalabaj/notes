@@ -363,3 +363,138 @@ mat(1,0,...,0,(2-n)/(n-1),1/(n-1),...,1/(n-1);0,1,...,0,1/(n-1),(2-n)/(n-1),...,
 dots.v,dots.v,dots.down,dots.v,dots.v,dots.v,dots.down,dots.v;
 0,0,...,1,1/(n-1),1/(n-1),...,(2-n)/(n-1);augment:#4)
 $
+
+#problem[Niech $A$ będzie macierzą kwadratową. Udowodnij, że:]
+
+#subproblem[jeżeli $A^2-A+I=0$, to $A$ jest nieosobliwa i $A^(-1)=I-A$;]
+
+#subproblem[jeżeli $A^k=0$, to $(I-A)^(-1)=I+A+A^2+...+A^(k-1)$ (dla $k>=1$).]
+
+#problem[Jakie są możliwe wartości wyznacznika macierzy rzeczywistej $A$ stopnia
+$n$, jeżeli:]
+
+#subproblem[$A^2=A^T$]
+$
+det A^2 &= det A^T \
+(det A)^2 &= det A \
+det A(det A - 1) &= 0 \
+det A = 0 &or det A = 1
+$
+Sprawdźmy czy te wyznaczniki są osiągalne.
+$
+A = [0] => A^2 = [0] = A^T and det A = 0 \
+A = [1] => A^2 = [1] = A^T and det A = 1
+$
+
+#subproblem[$A^T-A^(-1)=0$]
+$A$ jest odwracalna, więc $det A != 0$.
+$
+A^T &= A^(-1) \
+det A^T &= det A^(-1) \
+det A &= (det A)^(-1) | dot det A \
+(det A)^2 &= 1 \
+det A = 1 &or det A = -1
+$
+Sprawdźmy czy te wyznaczniki są osiągalne.
+$
+A = [1] => A^T = [1] = A^(-1) and det A = 1\
+A = [-1] => A^T = [-1] = A^(-1) and det A = -1
+$
+
+#subproblem[$A^2+A^(-1)=0$]
+$
+A^2 + A^(-1) &= 0 \
+A^2 &= -A^(-1) \
+det A^2 &= det -A^(-1) \
+(det A)^2 &= -(det A)^(-1) | dot det A \
+(det A)^3 &= -1 \
+det A &= -1\
+A = [-1] => A^2 + A^(-1) &= [1] + [-1] = [0]
+$
+
+#problem[Sprawdź dla jakich wartości parametru rzeczywistego $p$ macierz:
+  $
+  A=mat(1,p,p,p;p,1,p,p;p,p,1,p;p,p,p,1) "jest nieosobliwa."
+  $
+Wyznacz wymiar przestrzeni $ "Lin"{(1,p,p,p);(p,1,p,p);(p,p,1,p);(p,p,p,1)} $
+w zależności od parametru $p$.
+]
+#set math.mat(delim: "|")
+$
+det A = mat(1,p,p,p;p,1,p,p;p,p,1,p;p,p,p,1)mat(delim:#none,;-w_1;-w_1;-w_1;)=
+mat(1,p,p,p;p-1,1-p,0,0;p-1,0,1-p,0;p-1,0,0,1-p)=
+(p-1)^3mat(1,p,p,p;1,-1,0,0;1,0,-1,0;1,0,0,-1)=\
+(p-1)^3mat(1+3p,p,p,p;0,-1,0,0;0,0,-1,0;0,0,0,-1)=-(p-1)^3 (1+3p)\
+"A jest nieosobliwa" <=> det A != 0 <=> p != 1 and p != -1/3
+$
+Rząd macierzy $A$ to liczba niezależnych wierszy $A$, więc jest to również
+wymiar przestrzeni rozpiętej nad tymi wierszami. 
+
+Jeżeli $p != 1 and p != -1/3$ to $det A != 0$, czyli wymiar to $r(A) = 4$.
+
+Dla $p = 1$ mamy:
+#set math.mat(delim: "[")
+$
+A = mat(1,1,1,1;1,1,1,1;1,1,1,1;1,1,1,1;)
+$
+Wszystkie wiersze są takie same, więc wymiar podprzestrzeni to $r(A) = 1$.
+
+Dla $p = -1/3$:
+$
+A =
+mat(1,-1/3,-1/3,-1/3;-1/3,1,-1/3,-1/3;-1/3,-1/3,1,-1/3;-1/3,-1/3,-1/3,1;)
+$
+$det A = 0$, więc $r(A) !=4$. Sprawdźmy wyznacznik podmacierzy $3 times 3$.
+$
+mat(delim: "|",1,-1/3,-1/3;-1/3,1,-1/3;-1/3,-1/3,1)
+mat(delim: #none,1,-1/3;-1/3,1;-1/3,-1/3)=1 - 1/27-1/27-1/9-1/9-1/9=16/27 !=0 =>
+r(A)=3
+$
+Więc wymar podprzestrzeni to $cases(1",gdy" p=1,3", gdy" p=-1/3, 
+  4" w przeciwnym przypadku")$
+
+
+#problem[Niech będzie dany następujący podzbiór $N$ zbioru $M_(2 times 2) (CC)$:
+  $
+  N = {mat(x, i x; -i x, x): x in RR without {0}}.
+  $
+  Sprawdź, czy para $(N, dot)$, gdzie "$dot$" oznacza mnożenie macierzy, jest
+  grupą abelową.
+]
+
+Niech $A = mat(x, i x; -i x, x), B = mat(y, i y; -i y, y),
+C = mat(z, i z; -i z, z) x, y, z in RR without
+{0}$
+$
+&mat(y,,,,,,,, i y; -i y,,,,,,,, y) \
+A dot B = mat(x, i x; -i x, x) 
+&mat(x y - i^2 x y, i x y + i x y; -i x y -i x y, -i^2 x y + x y)=
+mat(2x y, 2 i x y; -2 i x y, 2 x y) in N
+$
+$
+A dot (B dot C) =mat(x, i x; -i x, x) dot mat(2x y, 2 i x y; -2 i x y, 2 x y) = 
+mat(4 x y z, 4 i x y z; -4 i x y z, 4 x y z) = (A dot B) dot C
+$
+Działanie $dot$ jest wewnętrzne i łączne. Widać też, że jest przemienne.
+
+$exists E in N: forall A in N: E dot A = A$ (?)
+
+Niech $A = mat(x, i x; -i x, x), E = mat(e, i e; -i e, e), x, e in RR without
+{0}$
+
+$
+A dot E = mat(2x e, 2 i x e; -2 i x e, 2 x e) = mat(x, i x; -i x, x) => e = 1/2
+$
+Istnieje element neutralny.
+
+$forall A in N: exists A' in N: A dot A' = E$ (?)
+
+Niech $A = mat(x, i x; -i x, x), A' = mat(x', i x'; -i x', x'), x, x' in RR without
+{0}$
+
+$
+A dot A' = mat(2x x', 2 i x x'; -2 i x x', 2 x x') = mat(1/2, i/2; -i/2, 1/2)
+=> x' = 1/(4x) != 0
+$
+
+Każdy element $N$ ma swój element odwrotny, więc $(N, dot)$ to grupa abelowa.
