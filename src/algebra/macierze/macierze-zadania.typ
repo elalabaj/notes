@@ -298,9 +298,68 @@ $
 F = mat(0, 2, 3, 4, -8; 1, 1, 3, 4, -8; 1, 2, 2, 4, -8; 1, 2, 3, 3, -8; 1, 2, 3,
 4, -9)
 $
+#set math.mat(delim: "|")
+$
+det F = mat(0,2,3,4,-8;1, 1, 3, 4, -8; 1, 2, 2, 4, -8; 1, 2,3,3,-8;1,2,3, 4, -9)
+mat(delim: #none, -w_5;-w_5;-w_5;-w_5;;)=
+mat(-1,0,0,0,1;0,-1,0,0,1;0,0,-1,0,1;0,0,0,-1,1;1,2,3,4,-9)
+mat(delim: #none, ;;;;+w_1+2w_2+3w_3+4w_4;)= \
+mat(-1,0,0,0,1;0,-1,0,0,1;0,0,-1,0,1;0,0,0,-1,1;0,0,0,0,1) = 1
+$
+#set math.mat(delim: "[")
+
+$
+mat(0,2,3,4,-8,1,0,0,0,0;1, 1, 3, 4, -8,0,1,0,0,0; 1, 2, 2, 4, -8,0,0,1,0,0; 
+1, 2,3,3,-8,0,0,0,1,0;1,2,3, 4, -9,0,0,0,0,1; augment: #5)
+mat(delim: #none, -w_5;-w_5;-w_5;-w_5;;)=
+mat(-1,0,0,0,1,1,0,0,0,-1;0,-1,0,0,1,0,1,0,0,-1;0,0,-1,0,1,0,0,1,0,-1;
+0,0,0,-1,1,0,0,0,1,-1;1,2,3,4,-9,0,0,0,0,1; augment: #5)
+mat(delim: #none, ;;;;+w_1+2w_2+3w_3+4w_4;)= \
+mat(-1,0,0,0,1,1,0,0,0,-1;0,-1,0,0,1,0,1,0,0,-1;0,0,-1,0,1,0,0,1,0,-1;
+0,0,0,-1,1,0,0,0,1,-1;0,0,0,0,1,1,2,3,4,-9; augment: #5)
+mat(delim: #none, -w_5;-w_5;-w_5;-w_5;;)=
+mat(-1,0,0,0,0,0,-2,-3,-4,8;0,-1,0,0,0,-1,-1,-3,-4,8;0,0,-1,0,0,-1,-2,-2,-4,8;
+0,0,0,-1,0,-1,-2,-3,-3,8;0,0,0,0,1,1,2,3,4,-9; augment: #5)
+mat(delim: #none, dot (-1);dot (-1);dot (-1);dot (-1);;)=\
+mat(1,0,0,0,0,0,2,3,4,-8;0,1,0,0,0,1,1,3,4,-8;0,0,1,0,0,1,2,2,4,-8;
+0,0,0,1,0,1,2,3,3,-8;0,0,0,0,1,1,2,3,4,-9; augment: #5) =>
+F^(-1) = F
+$
 
 #subproblem[]
 $
 G_n = mat(0, 1, ..., 1; 1, 0, ..., 1; dots.v, dots.v, dots.down, dots.v; 1, 1,
   ..., 0)_(n times n)
+$
+#set math.mat(delim: "|")
+$
+det G_n = mat(0,1,...,1;1,0, ..., 1; dots.v,dots.v,dots.down,dots.v;1,1, ..., 0)
+mat(delim: #none,-w_n;-w_n;dots.v;;)=
+mat(-1,0,...,0,1;0,-1,...,0,1;dots.v,dots.v,dots.down,dots.v,dots.v;0,0,...,-1,1
+;1,1,...,1,0)mat(delim: #none,;;;;+w_1+...+w_(n-1)) =\
+mat(-1,0,...,0,1;0,-1,...,0,1;dots.v,dots.v,dots.down,dots.v,dots.v;0,0,...,-1,1
+;0,0,...,0,n-1) = (-1)^(n-1) (n-1) != 0
+$
+#set math.mat(delim: "[")
+$
+mat(0,1,...,1,1,0,...,0;1,0,...,1,0,1,...,0;
+dots.v,dots.v,dots.down,dots.v,dots.v,dots.v,dots.down,dots.v;
+1,1,...,0,0,0,...,1;augment:#4) mat(delim: #none,-w_n;-w_n;dots.v;;)=
+mat(-1,0,...,1,1,0,...,-1;0,-1,...,1,0,1,...,-1;
+dots.v,dots.v,dots.down,dots.v,dots.v,dots.v,dots.down,dots.v;
+1,1,...,0,0,0,...,1;augment:#4)mat(delim: #none,;;;;+w_1+...+w_(n-1))=\
+mat(-1,0,...,1,1,0,...,-1;0,-1,...,1,0,1,...,-1;
+dots.v,dots.v,dots.down,dots.v,dots.v,dots.v,dots.down,dots.v;
+0,0,...,n-1,1,1,...,2-n;augment:#4)
+mat(delim:#none,dot (1-n);dot (1-n);dots.v;;)=\
+mat(n-1,0,...,1-n,1-n,0,...,n-1;0,n-1,...,1-n,0,1-n,...,n-1;
+dots.v,dots.v,dots.down,dots.v,dots.v,dots.v,dots.down,dots.v;
+0,0,...,n-1,1,1,...,2-n;augment:#4)mat(delim:#none,+w_n;+w_n;dots.v;;)=\
+mat(n-1,0,...,0,2-n,1,...,1;0,n-1,...,0,1,2-n,...,1;
+dots.v,dots.v,dots.down,dots.v,dots.v,dots.v,dots.down,dots.v;
+0,0,...,n-1,1,1,...,2-n;augment:#4)mat(delim:#none,dot 1/(n-1);dot 1/(n-1);
+  dots.v;dot 1/(n-1);)=\
+mat(1,0,...,0,(2-n)/(n-1),1/(n-1),...,1/(n-1);0,1,...,0,1/(n-1),(2-n)/(n-1),...,1/(n-1);
+dots.v,dots.v,dots.down,dots.v,dots.v,dots.v,dots.down,dots.v;
+0,0,...,1,1/(n-1),1/(n-1),...,(2-n)/(n-1);augment:#4)
 $
