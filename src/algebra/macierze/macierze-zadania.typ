@@ -380,13 +380,16 @@ $
 
 #subproblem[jeżeli $A^k=0$, to $(I-A)^(-1)=I+A+A^2+...+A^(k-1)$ (dla $k>=1$).]
 
+Niech $B = I+A+A^2+...+A^(k-1)$. 
 $
-(I-A) dot (I-A)^(-1) &= (I-A) dot (I+A+A^2+...+A^(k-1))\
-I &= (I - A)^k \
-I^k &= (I - A)^k \
-I &= I - A \
-A &= 0 \
-A^k &= 0 \
+(I-A)^(-1) = B <=> (I-A) dot B = B dot (I-A) = I \
+(I-A) dot B = (I-A) dot (I+A+A^2+...+A^(k-1)) = \
+I^I + I dot A + I dot A^2 + ... + I dot A^(k-1) - A dot I - A dot A- A dot A^2 -
+... - A dot A^(k-1) = I - A^k = I \
+
+B dot (I-A) = (I+A+A^2+...+A^(k-1)) dot (I-A) = \
+I^I + A dot I + A^2 dot I + ... + A^(k-1) dot I - A dot I - A dot A- A^2 dot A -
+... - A^(k-1) dot A = I - A^k = I
 $
 
 #problem[Jakie są możliwe wartości wyznacznika macierzy rzeczywistej $A$ stopnia
@@ -517,3 +520,69 @@ A dot A' = mat(2x x', 2 i x x'; -2 i x x', 2 x x') = mat(1/2, i/2; -i/2, 1/2)
 $
 
 Każdy element $N$ ma swój element odwrotny, więc $(N, dot)$ to grupa abelowa.
+
+#problem[Zadana jest macierz ortogonalna $A in M_(n times n) (RR)$ 
+  (tj. $A^T A = A A^T = I$). Rozwiąż równanie, gdzie $X$ jest niewiadomą
+  macierzą, a $I$ jest macierzą jednostkową:]
+$
+  A X (A^T)^2 &= -I^3 | dot A\
+  A X A^T A^T A &= -I A\
+  A X A^T I &= -A | dot A \
+  A X A^T A &= -A dot A \
+  A X I &= -A^2 | A^T dot \
+$$
+  A^T A X I &= A^T dot (-A^2) \
+  I X &= - A^T A dot A \
+  X &= -A
+$
+
+#problem[Niech $A in M_(n times n) (RR)$. Sprawdź, czy $A^T A = I => A A^T =I$.]
+
+Jeżeli $A$ jest odwracalna, to:
+$
+A^T A &= I | dot A^(-1) \
+A^T A A^(-1) &= I A^(-1) \
+A^T I &= A^(-1) \
+A^T &= A^(-1) =>
+A A^T = A A^(-1) = I
+$
+Jeżeli $A$ jest nieodwracalna to $det A = 0$, więc: 
+$
+det (A^T A) &= det I \
+det A^T dot det A &= 1 \
+0 = 1 \
+"sprzeczność"
+$
+
+#problem[Wykaż, że $n$-ta potęga macierzy diagonalnej, $n >= 1$, jest macierzą
+  diagonalną.]
+
+$
+&mat(a_11, 0, ..., 0; 0, a_22, ..., 0; dots.v, dots.v, dots.down, dots.v; 0, 0,
+  ..., a_(n n)) \
+mat(a_11, 0, ..., 0; 0, a_22, ..., 0; dots.v, dots.v, dots.down, dots.v; 0, 0,
+  ..., a_(n n))
+&mat(a_11^2, 0, ..., 0; 0, a_22^2, ..., 0; dots.v, dots.v, dots.down, dots.v; 0, 0,
+  ..., a_(n n)^2)
+$
+
+Indukcyjnie dowodzimy tezę dla kolejnych potęg.
+
+#problem[Uzasadnij, że wyznacznik macierzy $A in M_(n times n) (RR) thick (n > 1
+)$ o wyrazach nieparzystych jest liczbą parzystą.]
+
+
+$
+det A = mat(delim: "|",
+  a_(1 1), a_(1 2), ..., a_(1 n);
+  a_(2 1), a_(2 2), ..., a_(2 n);
+  dots.v, dots.v, dots.down, dots.v;
+  a_(m 1), a_(m 2), ..., a_(m n);
+) := sum_(sigma in S_n) epsilon(sigma) dot a_(1 sigma(1)) dot a_(2 sigma(2)) dot
+... dot a_(n sigma(n))
+$
+
+$epsilon(sigma) = plus.minus 1$, więc nie wpływa na parzystość. Każde $a_(i j)$
+jest nieparzyste, więc sumujemy iloczyny $n$ liczb nieparzystych, które też będą
+nieparzyste. Sumujemy po wszystkich permutacjach, których jest $n!$. Dla $n >
+1$, $n!$ jest parzyste, więc cała suma też będzie parzysta.
