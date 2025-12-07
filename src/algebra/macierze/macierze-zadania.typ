@@ -368,7 +368,26 @@ $
 
 #subproblem[jeżeli $A^2-A+I=0$, to $A$ jest nieosobliwa i $A^(-1)=I-A$;]
 
+$
+A^2-A+I&=0\
+I &= A - A^2 \
+I &= A dot I - A dot A &=& I dot A - A dot A \
+I &= A dot (I - A) &=& (I - A) dot A \
+$
+$
+=>A" jest odwracalna i" I-A = A^(-1) \
+$
+
 #subproblem[jeżeli $A^k=0$, to $(I-A)^(-1)=I+A+A^2+...+A^(k-1)$ (dla $k>=1$).]
+
+$
+(I-A) dot (I-A)^(-1) &= (I-A) dot (I+A+A^2+...+A^(k-1))\
+I &= (I - A)^k \
+I^k &= (I - A)^k \
+I &= I - A \
+A &= 0 \
+A^k &= 0 \
+$
 
 #problem[Jakie są możliwe wartości wyznacznika macierzy rzeczywistej $A$ stopnia
 $n$, jeżeli:]
