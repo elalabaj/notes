@@ -594,7 +594,14 @@ forall f, g in V_1: forall alpha, beta in RR: alpha f + beta g in^? V_1\
 forall f, g in V_2: forall alpha, beta in RR: alpha f + beta g in^? V_2\
 (alpha f + beta g)(x) = alpha f(x) + beta g(x)= alpha f(-x) + beta g(-x) = (alpha f + beta g)(-x)
 $
-
+$V = V_1 + V_2 <=> forall f in F(RR, RR): exists g in V_1, h in V_2: f = g+h$
+$
+  f(x) = g(x) + (f-g)(x) \
+  g(x) = g(-x) and (f-g)(x) = -(f-g)(-x) \
+  f(x) - g(x) = -f(-x) + g(-x) = -f(-x) + g(x) \
+  g(x) = (f(x) + f(-x))/2 \
+  (f-g)(x) = (f(x) - f(-x))/2
+$
 $V = V_1 plus.circle V_2 <=> V_1 inter V_2 = {overline(0)} = {f(x) = 0}$
 $
 f in V_1 inter V_2 <=> f(x) = -f(-x) = f(-x) => f(-x) = 0 => f(x) = 0

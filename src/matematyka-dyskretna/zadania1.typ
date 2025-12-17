@@ -1,6 +1,8 @@
 #import "../../template.typ": *
 #show: template
 
+#set text(size: 20pt)
+
 #problem[
   Na ile różnych sposobów można rozsadzić $n$ osób wokół okrągłego stołu z $n+w$ miejscami?
 ]
@@ -90,3 +92,8 @@ $ 8!/2^4 $
 
 Każda osoba ma 3 opcje: może być w komitecie, komitecie i zarządzie, lub w niczym. Wynik więc to
 $ 3^n $
+
+#problem[
+  Był raz marynarz których
+  $a+b dot h$
+]
