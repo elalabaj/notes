@@ -203,10 +203,35 @@ $
 &mat(p+1,-1,-p,2p;1,p,2p,1;1,0,p,1;p,1,0,1;augment:#3)&-->^(w_1 <-> w_3)&
 mat(1,0,p,1;1,p,2p,1;p+1,-1,-p,2p;p,1,0,1;augment:#3)
 mat(delim:#none;;-w_1;-(p+1)w_1;-p w_1) -> \
-&mat(1,0,p,1;0,p,p,0;0,-1,-p^2-2p,p-1;0,1,-p^2,1-p;augment:#3)
-mat(delim:#none;;:p;+w_2/p;-w_2/p) &->&
-mat(1,0,p,1;0,1,1,0;0,0,-p^2-2p+1,p-1;0,0,-p^2-1,1-p;augment:#3)
+&mat(1,0,p,1;0,p,p,0;0,-1,-p^2-2p,p-1;0,1,-p^2,1-p;augment:#3)&-->^(w_2<-> w_4)&
+mat(1,0,p,1;0,1,-p^2,1-p;0,-1,-p^2-2p,p-1;0,p,p,0;augment:#3)
+mat(delim:#none;;;+w_2;-p w_2) -> \
+&mat(1,0,p,1;0,1,-p^2,1-p;0,0,-2p^2-2p,0;0,0,p^3+p,p^2-p;augment:#3) &=& 
+mat(1,0,p,1;0,1,-p^2,1-p;0,0,-2p(p+1),0;0,0,p(p^2+1),p(p-1);augment:#3)
 $
+Jeśli $p in.not {0,-1,1}$ to dwa ostatnie wiersze są sprzeczne, bo 
+$
+-2p(p+1) w_3 = 0 =>& w_3 = 0\
+p(p^2+1) w_3 = p(p-1) =>& w_3 = (p(p-1))/(p(p^2+1)) != 0
+$
+czyli układ nie ma rozwiązań.
+
+Dla $p=0$ mamy:
+$
+mat(1,0,0,1;0,1,0,1;0,0,0,0;0,0,0,0;augment:#3) => 
+cases(x_1 = 1, x_2 = 1, x_3 = t in RR)
+$
+Dla $p=-1$:
+$
+mat(1,0,-1,1;0,1,-1,2;0,0,0,0;0,0,-2,2;augment:#3) =>
+cases(x_3 = 2/(-2)=-1, x_2 = 2 + (-1) = 1, x_1 = 1 + (-1) = 0)
+$
+Dla $p=1$:
+$
+mat(1,0,1,1;0,1,-1,0;0,0,-4,0;0,0,2,0;augment:#3) =>
+cases(x_3 = 0, x_2 = 0, x_1 = 1)
+$
+
 
 #problem[
   Wyznacz wszystkie wartości parametru zespolonego $p$ ($p in CC$), dla którego poniższa macierz zespolona $U$ jest osobliwa. Rozwiąż poniższy układ równań $(*)$ w ciele liczb zespolonych w zależności od parametru zespolonego $p$ ($p in CC$):
