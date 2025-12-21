@@ -211,8 +211,8 @@ mat(1,0,p,1;0,1,-p^2,1-p;0,0,-2p(p+1),0;0,0,p(p^2+1),p(p-1);augment:#3)
 $
 Jeśli $p in.not {0,-1,1}$ to dwa ostatnie wiersze są sprzeczne, bo 
 $
--2p(p+1) w_3 = 0 =>& w_3 = 0\
-p(p^2+1) w_3 = p(p-1) =>& w_3 = (p(p-1))/(p(p^2+1)) != 0
+-2p(p+1) x_3 = 0 =>& x_3 = 0\
+p(p^2+1) x_3 = p(p-1) =>& x_3 = (p(p-1))/(p(p^2+1)) != 0
 $
 czyli układ nie ma rozwiązań.
 
@@ -248,49 +248,30 @@ $
   ) $
 ]
 
-#problem[
-  W zależności od parametrów $a$ i $b$ rozwiąż układ równań:
-  $ cases(
-    x &- 2y &+ 3z &= b,
-    a x &+ 5y &- z &= 1,
-    -x &+ 3y &+ 2z &= 3
-  ) $
-]
+#set math.mat(delim: "|")
+$
+det U = &mat(p^2, 1, p^2, -1;-1, 1, -1, -1;1, -1, p+1, 1;-p^2, -1, -p^2, p+1)
+mat(delim:#none,;-w_1;+w_1;+w_1;) &->&
+mat(p^2,1,p^2,-1;-1-p^2,0,-1-p^2,0;1+p^2,0,p^2+p+1,0;0,0,0,p)
+$
+Stosujemy rozwinięcie Laplace'a dla drugiej kolumny:
+$
+det U = 1 dot (-1)^(1+2) mat(-1-p^2,-1-p^2,0;1+p^2,p^2+p+1,0;0,0,p) + 0 + 0 + 0
+=\ -((-1-p^2)(p^2+p+1)p - p(-1-p^2)(1+p^2)) = p(p^2+1)(p^2+p+1 - 1 - p^2) = \
+p^2(p^2+1) = p^2(p - i)(p + i)
+$
+#set math.mat(delim: "[") 
+Macierz jest osobliwa dla $p in {0, i, -i}$.
 
-#problem[
-  Rozważmy następujący układ równań z parametrami $k, a, b, c in RR$:
-  $ (*) cases(
-    k x &+ y &+ z &= a,
-    x &+ k y &+ z &= b,
-    x &+ y &+ k z &= c
-  ) $
-]
-
-#subproblem[
-  Znajdź zbiór $K$ tych $k$, dla których układ $(*)$ ma dokładnie jedno rozwiązanie i rozwiąż ten układ dla tych $k$;
-]
-#subproblem[
-  Dla każdego $k cases(in.not) K$ podaj warunek konieczny i wystarczający, który muszą spełniać $a, b, c$, aby układ $(*)$ miał co najmniej jedno rozwiązanie;
-]
-#subproblem[
-  Rozwiąż układ $(*)$ dla $k = 1, a = b = c = 3$, oraz dla $k = -2, a = b = 1, c = -2$.
-]
-
-#problem[
-]
-#subproblem[
-  Znajdź w zależności od parametrów $k, l in RR$ rząd macierzy:
-  $ M(k, l) = mat(
-    k, l, 1;
-    1, k l, 1;
-    1, l, k
-  ) $
-]
-#subproblem[
-  Przedyskutuj ze względu na parametry liczbę rozwiązań układu:
-  $ cases(
-    k x &+ l y &+ z &= a,
-    x &+ k l y &+ z &= b,
-    x &+ l y &+ k z &= c
-  ) $
-]
+Stosując takie same przejście otrzymujemy macierz dopełnioną układu równań:
+$
+mat(p^2,1,p^2,-1;-1-p^2,0,-1-p^2,0;1+p^2,0,p^2+p+1,0;0,0,0,p; augment:#3)
+$
+Z czwartego wiersza mamy $0 = p$, czyli dla $p!=0$ układ jest sprzeczny. Dla $p
+= 0$ mamy:
+$
+mat(0,1,0,-1;-1,0,-1,0;1,0,1,0;0,0,0,0; augment:#3)
+mat(delim:#none,;;+w_2;;) = 
+mat(0,1,0,-1;-1,0,-1,0;0,0,0,0;0,0,0,0; augment:#3) =>
+cases(x_1 = t, x_2 = -1, x_3 = -t) "dla" t in CC
+$
