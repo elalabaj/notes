@@ -1,0 +1,280 @@
+#import "../../../template.typ": *
+#show: template
+
+#let norm(a) = [ $abs(abs(#a))$ ]
+#let vec(a) = [ $arrow(#a)$ ]
+
+#problem[ Sprawdź, czy: ]
+#subproblem[ wektory $u=[-1,3,-5], v=[1,-1,1], w=[4,2,0]$ są współpłaszczyznowe; ]
+$
+mat(delim:"|",-1,3,-5;1,-1,1;4,-2,0)=0+12+10-20-2-0=0
+$
+Wektory są współpłaszczyznowe.
+
+#subproblem[ punkty $P=(0,0,0), Q=(-1,2,3), R=(2,3,-4), 
+  S=(2,-1,5)$ są współpłaszczyznowe.]
+
+Sprawdźmy współpłaszczyznowość wektorów $arrow(P Q), arrow(P R ) , arrow(P S)$.
+$
+mat(delim:"|",-1,2,3;2,3,-4;2,-1,5) = -15-16-6-18+4-20=-71!=0
+$
+Punkty nie są współpłaszczyznowe.
+
+#problem[Trójkąt $A B C$ rozpięty jest na wektorach 
+  $arrow(A B) = [1,5,-3], arrow(A C)=[-1,0,4]$. 
+  Oblicz wysokość tego trójkąta opuszczoną z wierzchołka $C$.]
+
+#set math.mat(delim: "|")
+$
+P_triangle = 1/2 norm(vec(A B) times vec(A C)) = 1/2 norm(A B
+) h_C => h_C = norm(vec(A B) times vec(A C))/ norm(A B )\
+vec(A B) times vec(A C) = mat(i,j,k;1,5,-3;-1,0,4)=[20,-1,5]\
+norm(vec(A B) times vec(A C)) = sqrt(20^2 + (-1)^2 + 5^2)=
+sqrt(426) \
+norm(vec(A B)) = sqrt(1^2 + 5^2 + (-3)^2) = sqrt(35)\
+h_C = sqrt(426/35)
+$
+
+#problem[
+Proste $l_1$ i $l_2$ dane są równaniami parametrycznymi:
+#columns(2)[
+$
+l_1: cases(x=1-4t, y=-2t, z=2+4t) #h(2em) (t in RR);
+$
+#colbreak()
+$
+l_2: cases(x=6+6t, y=4+3t, z=-6t) #h(2em) (t in RR);
+$
+]
+Wykaż, że $l_1$ i $l_2$ są równoległe. Oblicz odległość 
+  między nimi. Znajdź równanie ogólne ich wspólnej płaszczyzny
+]
+#columns(2)[
+$
+  P=(1,0,2), Q=(6,4,0)\
+vec(v)=[-4,-2,4], vec(w)=[6,3,-6]\
+vec(P Q) = [6-1, 4-0, 0-2] = [5,4,-2] $
+#colbreak() 
+#image("img/z3.png", width: 50%)
+]
+
+
+Wektory kierunkowe $vec(v)$ i $vec(w)$ są proporcjonalne:
+$ (-4)/6 = (-2)/3 = 4/(-6) $
+więc proste są równoległe.
+
+$
+d(l_1, l_2) = d(P, l_2) = norm(vec(P Q) times vec(w))/norm(
+  vec(w)) \
+vec(P Q) times vec(w) = mat(i,j,k;5,4,-2;6,3,-6)=[-18,18,-9] = 9 dot [-2,2,-1] \
+d = (9 sqrt((-2)^2+2^2+(-1)^2))/sqrt(6^2+3^2+(-6)^2) = 
+(9 dot 3)/(sqrt(81)) = 3
+$
+
+Płaszczyzna wspólna obu prostych to płaszczyzna rozpięta 
+np. przez wektory $vec(w)$ i $vec(P Q)$. Znajdźmy 
+wektor normalny tej płaszczyzny.
+$
+vec(n) = vec(P Q) times vec(w) =9 dot [-2,2,-1] \
+$
+Skalar można pominąć, więc przyjmijmy $vec(n) = [-2,2,-1]$.
+
+Równanie płaszczyzny przechodzącej przez punkt $Q$ i 
+prostopadłej do wektora $vec(n)$ ma postać:
+$
+pi: -2(x-6) + 2(y-4) -z &= 0\
+-2x + 2y - z + 4 &= 0
+$
+
+#problem[
+Zbadaj wzajemne położenie prostych
+#columns(2)[
+$
+l_1: cases(x=2-t, y=3+2t, z=-3t) #h(2em) (t in RR)
+$
+#colbreak()
+$
+l_2: cases(x=-3+2s, y=1+2s, z=-3) #h(2em) (s in RR)
+$
+]
+Znajdź równanie normalne ich wspólnej płaszczyzny (jeżeli istnieje).
+]
+
+Spróbujmy znaleźć punkt wspólny prostych.
+$
+cases(2-t=-3+2s, 3+2t=1+2s, -3t=-3) <=>
+cases(2s=5-t, 2s =2+2t, t=1) <=>
+cases(t=1, s=2)
+$
+Proste przecinają się w jednym punkcie $A=(1,5,-3)$, więc są
+współpłaszczyznowe.
+
+Wektory kierunkowe to $vec(v)=[-1,2,-3]$ i $vec(w)=[2,2,0]$.
+
+$
+vec(n) = vec(v) times vec(w) = mat(i,j,k;-1,2,-3;2,2,0) = 
+[6,-6,-6] = 6 dot [1,-1,-1] \
+pi: (x - 1) - (y - 5) - (z + 3) = 0
+$
+
+#problem[
+Zbadaj wzajemne położenie prostych
+#columns(2)[
+$
+l_1: cases(x=1+2t, y=t, z=2) #h(2em) (t in RR)
+$
+#colbreak()
+$
+l_2: cases(x=3, y=s, z=-s) #h(2em) (s in RR)
+$
+]
+Jeżeli leżą one na jednej płaszczyźnie, to napisz jej 
+  równanie ogólne. Jeżeli nie, to oblicz odległość między
+  tymi prostymi.
+]
+
+$
+cases(1+2t=3, t=s, 2=-s) =>
+cases(t=1, t=s, s=-2) 
+$
+Dochodzimy do sprzeczności, czyli proste nie mają punktów 
+wspólnych. Wektory kierunkowe $vec(v)=[2,1,0]$ i $vec(w)=
+[0,1,-1]$ nie są proporcjonalne, czyli proste nie są 
+równoległe i nie leżą na jednej płaszczyźnie.
+
+$P = (1,0,2), Q=(3,0,0), vec(P Q)=[2,0,-2] $
+$
+vec(P Q) times vec(w) = mat(i,j,k;2,0,-2;0,1,-1)=[2,2,2]
+$
+$
+d(l_1, l_2) = d(P, l_2) = norm(vec(P Q) times vec(w))/
+norm(vec(w)) = sqrt(2^2 + 2^2 + 2^2)/sqrt(0^2+1^2+(-1)^2) = 
+(2 sqrt(3))/sqrt(2) = sqrt(6)
+$
+
+#problem[Napisz równanie ogólne płaszczyzny $pi$ 
+  przechodzącej przez punkty $A=(-1,2,4)$, $B=(2,1,3)$ i $C
+  = (3,-1,5)$. Wyznacz odległość punktu $Q=(5,0,8)$ od
+płaszczyzny $pi$ oraz znajdź punkt symetryczny do punktu $Q$
+względem tej płaszczyzny.]
+
+Płaszczyzna $pi$ przechodzi przez punkt $A$ i jest rozpięta 
+na wektorach $vec(A B)$ i $vec(A C)$.
+$
+vec(A B) = [3,-1,-1], vec(A C) = [4,-3,1] \
+vec(n) = vec(A B) times vec(A C) = mat(i,j,k;3,-1,-1;4,-3,1)
+= [-4,-7,-5] = -[4,7,5]
+$
+$
+pi: 4(x+1) +7(y-2) +5(z-4) &= 0\
+4x +7y +5z - 30 &= 0
+$
+Odległość punktu od płaszczyzny można wyliczyć z wzoru:
+$
+d=abs(A x_0 + B y_0 + C z_0 + D)/sqrt(A^2 + B^2 + C^2) =
+abs(4 dot 5 + 7 dot 0 + 5 dot 8 - 30)/sqrt(4^2+7^2+5^2)=
+30/sqrt(90) = 30/(3 sqrt(10)) = sqrt(10)
+$
+Żeby wyznaczyć odbicie puntku $Q$ znajdźmy prostą  $l$
+przechodzącą przez $Q$ prostopadłą do płaszczyzny $pi$.
+Będzie mieć ona postać $Q + t vec(n)$, czyli:
+$
+l: cases(x=5 + 4 t, y=7t, z=8 + 5t) #h(2em) (t in RR)
+$
+Wyznaczmy $vec(Q P)$, gdzie $P$ to rzut punktu $Q$ 
+na płaszczyznę $pi$, czyli 
+przecięcie tej płaszczyzny z prostą $l$. 
+$
+4(5+4t) + 7(7t) + 5(8+5t) - 30 = 0 \
+90t + 30 = 0 => t = -1/3 \
+vec(Q P) = -1/3 vec(n)
+$
+Niech $Q'$ to będzie odbicie symetryczne punktu $Q$ względem 
+płaszczyzny $pi$. Wtedy $
+vec(Q P) = vec(P Q') => vec(Q Q') = 2 vec(Q P) = -2/3 vec(n)=
+[-8/3, -14/3, -10/3] \
+Q' = Q + vec(Q Q') = (5-8/3, -14/3, 8-10/3) =(7/3,-14/3,14/3)
+$
+
+#problem[Znajdź rzut prostokątny punktu $P=(6,4,0)$ na 
+  prostą
+$
+  l: cases(x=6+6t,y=4+3t,z=-6t) #h(2em) (t in RR)
+  $
+oraz punkt symetryczny do $P$ względem tej prostej. ]
+
+Zauważmy, że dla $t=0$ dostajemy $x=6, y=4, z=0$ czyli punkt
+$P$. Oznacza to, że punkt $P$ leży na tej prostej, więc
+jest swoim rzutem prostokątnym na tę prostą oraz odbiciem
+symetrycznym względem niej.
+
+#problem[Znajdź rzut prostokątny prostej 
+  $k:(x-2)/1 = (y-2)/1 = (z-5)/1$ na płaszczyznę \
+$pi: x+y-2z+4=0$.]
+
+Prosta $k$ przechodzi przez punkt $P=(2,2,5)$ i ma wektor 
+kierunku $vec(v) = [1,1,1]$.
+
+Wektor normalny płaszczyzny $pi$ to $vec(n)=[1,1,-2]$.
+
+$vec(v) compose vec(n) = 1 dot 1 + 1 dot 1 + 1 dot (-2) = 0 
+=> vec(v) perp vec(n) => k parallel pi$
+
+Prosta jest prostopadła do płaszczyzny więc wystarczy znaleźć
+rzut prostokątny tylko jednego punktu, np. $P$. Wyznaczmy
+prostą $l$ przechodzącą przez $P$ i prostopadłą do $pi$.
+$
+l: cases(2 + t,2+t,5-2t) #h(2em) (t in RR)
+$
+Punkt przecięcia $l$ i $pi$ to rzut prostokątny $P_0$ 
+punktu $P$ na $pi$.
+$
+(2+t) + (2+t) -2(5-2t) + 4 = 0\
+6t -2 = 0 => t = 1/3 \
+P_0 = (2+1/3, 2+1/3, 5 - 2/3) = (7/3, 7/3, 13/3)
+$
+Rzut prostej $k$ na płaszczyznę $pi$ musi mieć ten sam wektor
+kierunku, ponieważ $k parallel pi => k$.
+
+$ k: (x-7/3)/1 = (y-7/3)/1 = (z-13/3)/1\
+x=y=z+2 $
+
+#problem[Znajdź odległość prostej $l: (x-2)/1=(y+3)/2=
+  (z-2)/(-1)$ od płaszczyzny
+$
+pi: cases(x=1-s+3t,y=2-2s-2t,z=-1+s-t) #h(2em)  (s,t in RR).
+$]
+
+Płaszczyzna $pi$ zawiera punkt $P=(1,2,-1)$ i jest rozpięta
+na wektorach $vec(v)=[-1,-2,1]$ i $vec(w)=[3,-2,-1]$.
+
+Prosta $l$ zawiera punkt $Q=(2,-3,2)$ i ma wektor kierunku 
+$vec(u)=[1,2,-1] = -vec(v) => l parallel pi$, więc wystarczy 
+znaleźć odległość $Q$ od $pi$.
+
+Wektor normalny płaszczyzny $pi$:
+$
+vec(n) = vec(v) times vec(w) = mat(i,j,k;-1,-2,1;3,-2,-1) = 
+[4,2,8] = 2 dot [2,1,4] \
+pi: 2(x-1) + (y-2) + 4(z+1) = 0\
+2x + y + 4z = 0 \
+d(Q, pi) = abs(2 dot 2 + 1 dot (-3) + 4 dot 2 + 0)/sqrt(2^2
++1^2+4^2) = 9/sqrt(21) = (3sqrt(21))/7
+$
+
+#problem[Dana jest prosta
+$
+l: cases(3&x-2y&+&z&=&3,
+  &x&-2&z&=&0)  
+$
+oraz płaszczyzna $pi_1: x+y+z+8=0$. Znajdź równanie ogólne 
+  płaszczyzny $pi$ zawierającej prostą $l$ i prostopadłej
+do płaszczyzny $pi_1$. Zbadaj wzajemne położenie prostej $l$
+i krawędzi $k$ przecięcia się płaszczyzn $pi$ i $pi_1$.]
+
+Żeby płaszczyzny były prostopadłe ich wektory normalne muszą
+być prostopadłe, czyli $vec(n_1) compose vec(n) = 0$.
+$vec(n_1)=[1,1,1]$. Niech $vec(n) = [a,b,c]$. Wtedy:
+$
+vec(n_1) compose vec(n) = a+b+c = 0 => vec(n) = [a,b,-a-b]
+$
