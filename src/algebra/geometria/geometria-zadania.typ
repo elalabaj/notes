@@ -220,7 +220,7 @@ Wektor normalny płaszczyzny $pi$ to $vec(n)=[1,1,-2]$.
 $vec(v) compose vec(n) = 1 dot 1 + 1 dot 1 + 1 dot (-2) = 0 
 => vec(v) perp vec(n) => k parallel pi$
 
-Prosta jest prostopadła do płaszczyzny więc wystarczy znaleźć
+Prosta jest równoległa do płaszczyzny więc wystarczy znaleźć
 rzut prostokątny tylko jednego punktu, np. $P$. Wyznaczmy
 prostą $l$ przechodzącą przez $P$ i prostopadłą do $pi$.
 $
@@ -272,9 +272,45 @@ oraz płaszczyzna $pi_1: x+y+z+8=0$. Znajdź równanie ogólne
 do płaszczyzny $pi_1$. Zbadaj wzajemne położenie prostej $l$
 i krawędzi $k$ przecięcia się płaszczyzn $pi$ i $pi_1$.]
 
-Żeby płaszczyzny były prostopadłe ich wektory normalne muszą
-być prostopadłe, czyli $vec(n_1) compose vec(n) = 0$.
-$vec(n_1)=[1,1,1]$. Niech $vec(n) = [a,b,c]$. Wtedy:
+Z równania prostej $l$:
 $
-vec(n_1) compose vec(n) = a+b+c = 0 => vec(n) = [a,b,-a-b]
+cases(reverse: #true,  x = 2z,
+7z - 2y = 3 => y = 7/2z - 3/2) => 
+cases(x=4t, y=-3/2 + 7t, z=2t) #h(2em) (t in RR)
 $
+
+Wynika z tego, że prosta $l$ zawiera punkt $(0,-3/2,0)$, więc płaszczyzna $pi$
+też musi go zawierać.
+
+Oprócz tego, wektor normalny płaszczyzny $pi$ musi być prostopadły do prostej 
+$l$ oraz do wektora normalnego płaszczyzny $pi_1$.
+
+Wektor kierunkowy prostej $l$ to $vec(v)=[4,7,2]$, a wektor normalny płaszczyzny
+$pi_1$ to $vec(n_1)=[1,1,1]$. Niech $vec(n)=[a,b,c]$ będzie wektorem normalnym
+płaszczyzny $pi$. Wtedy:
+$
+vec(n) compose vec(v) = 0 &and vec(n) compose vec(n_1) = 0 \
+4a + 7b + 2c = 0 &and a + b + c = 0 \
+$
+$
+2a+5b = 0 => b = - 2/5 a\
+-3a - 5c = 0 => c = -3/5 a \
+$
+Wektor zerowy nie może być wektorem normalnym, więc możemy bez straty
+ogólności przyjąć $a=5$. Wtedy $vec(n)=[5,-2,-3]$.
+$
+pi: 5x -2(y+3/2) -3z &= 0 \
+5x - 2y - 3z - 3 &= 0
+$
+
+Proste $l$ i $k$ obie należą do płaszczyzny $pi$, więc albo są równoległe i
+wtedy $l$ nie przecina nigdy płaszczyzny $pi_1$, albo przecinają się w punkcje
+przebicia $pi_1$ przez prostą $l$.
+
+$
+4t -3/2 + 7t + 2t + 8 &= 0 \
+13t + 13/2 &= 0 \
+t &= -1/2
+$
+Czyli proste $k$ i $l$ przecinają się w punkcie $(-4/2, -3/2-7/2,
+-2/2)=(-2,-5,-1)$.
