@@ -314,3 +314,122 @@ t &= -1/2
 $
 Czyli proste $k$ i $l$ przecinają się w punkcie $(-4/2, -3/2-7/2,
 -2/2)=(-2,-5,-1)$.
+
+#problem[
+Znajdź punkt symetryczny do punktu $P = (2, 3, −1)$ względem
+prostej
+$
+l :
+cases(
+x + y = 0,
+y + z = 0
+)
+$
+oraz płaszczyznę $π$ zawierającą prostą $l$ i punkt $P$.
+]
+
+Z równania prostej $l$:
+$
+cases(x=-y, z=-y) => #h(1em) l: cases(x = t, y = -t, z = t) #h(2em) (t in RR)
+$
+
+Wyznaczmy płaszczyznę $pi_0$ która przechodzi przez punkt $P$ oraz jest 
+prostopadła do prostej $l$. Wektorem normalnym tej płaszczyzny będzie wektor 
+kierunku prostej $l$, czyli $[1,-1,1]$.
+$
+pi_0: (x-2) - (y-3) + (z+1) = 0
+$
+Punkt $P_0$ przebicia tej płaszczyzny przez prostą $l$ to
+będzie rzut prostokątny punktu $P$ na tą prostą.
+$
+(t-2) - (-t-3) + (t+1) &= 0 \
+3t + 2 &= 0 \
+t  &= -2/3 \
+P_0 &= (-2/3, 2/3, -2/3) \
+$
+Odbicie $P'$ punktu $P$ leży po drugiej stronie $P_0$.
+$
+vec(P P_0) &= [-2/3 - 2, 2/3 - 3, -2/3 + 1] = [-8/3, -7/3, 1/3] \
+vec(P_0 P') &= vec(P P_0) =>  \
+P' &= (-2/3 - 8/3, 2/3 -7/3, -2/3 + 1/3) = 
+(-10/3, -5/3, -1/3)
+$
+
+Płaszczyzna zawierająca punkt $P$ ma równanie postaci $a(x-2) + b(y-3) +
+c(z+1) =0$, gdzie $a, b, c in RR$. Równanie musi zachodzić dla współrzędnych z
+prostej $l$, dlatego:
+$
+a(t - 2) + b(-t - 3) + c(t + 1) &= 0 "dla każdego" t in RR \
+t(a - b + c) -2a -3b + c &= 0
+$
+$
+cases(a-b+c=0,-2a-3b+c=0)
+$$
+3a+2b &= 0 => b = -3/2 a\
+-5a -2c &= 0 => c = -5/2 a\
+$
+$a!=0$ więc możemy bez straty ogólności przyjąć $a=2$. Wtedy płaszczyzna $pi$ ma
+postać:
+$
+pi: 2(x-2) -3(y-3) -5(z+1) &= 0 \
+2x-3y-5z&=0
+$
+
+#problem[
+Zbadaj wzajemne położenie prostej $l$ prostopadłej do płaszczyzny $pi : y = 2 +
+z$ i przechodzącej przez punkt $A = (1, 2, 0)$ oraz prostej $k$
+przechodzącej przez punkt $B = (0, 3, −1)$ i równoległej do prostej
+$
+k': cases(x + y − z = −1, x − 2y − z = 2)
+$
+Wyznacz odległość prostych $l$ i $k$. Wyznacz objętość równoległościanu 
+rozpinanego przez wersory prostych $l$ i $k$ oraz wektor $vec(A B)$.
+]
+
+Prosta $l$ ma wektor kierunku równy wektorowi normalnemu płaszczyzny $pi:
+y-z-2=0$, czyli $vec(v) = [0,1,-1]$ więc jej równanie to:
+$
+l: cases(x=1, y = 2 + t, z = -t) #h(2em) (t in RR)
+$
+Wektor kierunkowy $vec(w)$ prostej $k$ jest taki sam jak prostej $k'$.
+Musi być on prostopadły do
+wektorów normalnych dwóch płaszczyzn których prosta $k'$ jest przecięciem.
+$
+vec(w) = mat(i,j,k;1,1,-1;1,-2,-1) = [-3,0,-3] = -3 dot [1,0,1]
+$
+Więc prosta $k$ ma równanie
+$
+k: cases(x=s, y=3, z = -1 + s) #h(2em) (s in RR)
+$
+Sprawdźmy, czy proste $l$ i $k$ mają punkty wspólne.
+$
+cases(1 = s, 2+t = 3 &=> t = 1, -t = -1+s &=> t = 0)
+$
+Nie mają punktów wspólnych a ich wektory kierunkowe nie są proporcjonalne,
+dlatego nie są współpłaszczyznowe, czyli są skośne.
+
+Odległość dwóch prostych skośnych możemy obliczyć ze wzoru:
+$
+d(l, k) = abs((vec(v), vec(w), vec(A B)))/abs(vec(v) times vec(w)) = 
+abs((vec(v) times vec(w)) compose vec(A B))/abs(vec(v) times vec(w))
+$
+$
+vec(A B) = [-1,1,-1]\
+vec(v) times vec(w) = mat(i,j,k;0,1,-1;1,0,1) = [1,-1,-1] \
+d = abs(1 dot (-1) + (-1) dot 1 + (-1) dot (-1))/sqrt(1^2 + (-1)^2 + (-1)^2)=
+1/sqrt(3) = sqrt(3)/3
+$
+
+Wersory to wektory jednostkowe, więc:
+$
+vec(u)_l = vec(v)/norm(vec(v)) = [0,1/sqrt(2),(-1)/sqrt(2)] \
+vec(u)_k = vec(w)/norm(vec(w)) = [1/sqrt(2), 0,1/sqrt(2)]
+$
+Objętość równoległościanu to moduł z iloczynu mieszanego:
+$
+V = abs((vec(u)_l, vec(u)_k, vec(A B))) = abs((vec(u)_l times vec(u)_k) compose
+vec(A B)) \
+vec(u)_l times vec(u)_k =
+mat(i,j,k;0,1/sqrt(2),(-1)/sqrt(2);1/sqrt(2),0,1/sqrt(2)) = [1/2, -1/2, -1/2] \
+V = abs(-1/2 - 1/2 + 1/2) = 1/2
+$
