@@ -427,9 +427,107 @@ vec(u)_k = vec(w)/norm(vec(w)) = [1/sqrt(2), 0,1/sqrt(2)]
 $
 Objętość równoległościanu to moduł z iloczynu mieszanego:
 $
-V = abs((vec(u)_l, vec(u)_k, vec(A B))) = abs((vec(u)_l times vec(u)_k) compose
-vec(A B)) \
-vec(u)_l times vec(u)_k =
-mat(i,j,k;0,1/sqrt(2),(-1)/sqrt(2);1/sqrt(2),0,1/sqrt(2)) = [1/2, -1/2, -1/2] \
-V = abs(-1/2 - 1/2 + 1/2) = 1/2
+V = abs((vec(u)_l, vec(u)_k, vec(A B))) = abs(mat(0,1/sqrt(2),(-1)/sqrt(2);
+1/sqrt(2),0,1/sqrt(2);-1,1,-1)) = abs(-1/2 - 1/2 + 1/2) = 1/2\
+$
+
+#problem[
+Dana jest płasczyzna $pi : x+2y+3z−6 = 0$ oraz prosta $l : x = y = z$.
+Wyznacz punkt $A$ przecięcia się prostej $l$ i płaszczyzny $pi$ oraz rzut 
+  prostokątny $k$ prostej $l$ na płaszczynę $pi$. Wyznacz pole trójkąta $A B B'$
+, gdzie $B = (0, 0, 0)$ jest punktem należącym do prostej $l$, a $B'$
+jest rzutem prostokątnym punktu $B$ na prostą $k$.
+]
+
+$
+x+2x+3x-6&=0 \
+6x &= 6 \
+x = y = z &= 1 \
+A &= (1, 1, 1)
+$
+Punkt $A$ leży na płaszczyźnie więc jest swoim własnym rzutem na nią. Aby 
+znaleźć rzut prostej $l$ potrzebujemy jeszcze rzut drugiego punktu, np. $B$.
+
+Prosta przechodząca przez $B$ prostopadła do płaszczyzny $pi$ ma równanie:
+$
+cases(x = t, y = 2t, y = 3t) #h(2em) (t in RR)
+$
+Rzut $B$ na $pi$ to przecięcie tej prostej z płaszczyzną:
+$
+t + 2(2t) + 3(3t) - 6 &= 0 \
+14t &= 6 \
+t &= 3/7 \
+$
+Więc $B' = (3/7, 6/7, 9/7)$. Jest to też rzut $B$ na prostą $k$.  Ma ona wektor
+kierunkowy $vec(A B') = [-4/7, -1/7, 2/7]$. Możemy to uprościć do 
+$vec(v) = [-4, -1, 2]$, czyli dostajemy równanie:
+$
+k: cases(x=1-4t, y=1-t, z=1+2t) #h(2em) (t in RR)
+$
+Pole trójkąta $A B B;$ to połowa pola równoległoboku wyznaczonego przez wektory 
+$vec(B A)$ i $vec(B B')$.
+
+$
+P_triangle = 1/2 norm(vec(B A) times vec(B B')) \
+vec(B A) times vec(B B') = mat(i, j, k; 1,1,1;3/7,6/7,9/7) = [3/7, -6/7, 3/7] =
+3/7 dot [1, -2, 1] \
+P_triangle = 1/2 dot 3/7 sqrt(1^2 + (-2)^2 + 1^2) = (3 sqrt(6))/14
+$
+
+#problem[
+Napisz równanie parametryczne i kierunkowe prostej $l$ będącej dwusieczną kąta 
+ostrego utworzonego przez proste:
+  $
+  l_1: (x-1)/2 = (y+1)/(-1) = (z-2)/2, l_2: (x+6)/4 = (y-1)/(-3) = (z+29)/(-12)
+  $
+]
+
+#columns(2)[
+Jeżeli weźmiemy wektory kierunkowe o tej samej długości to ich suma (albo
+  różnica, jeśli tworzą kąt rozwarty) będzie przekątną rombu, a więc dwusieczną,
+  której szukamy.
+#colbreak()
+#image("img/z14.png")
+]
+
+Wektor kierunkowy $l_1$ to $vec(v_0) = [2,-1,2]$, a $l_2$ to $vec(w_0) =
+[4,-3,-12]$.
+
+$
+vec(v) = vec(v_0)/norm(vec(v_0)) = vec(v_0)/sqrt(2^2 + (-1)^2 + 2^2) = 
+vec(v_0)/sqrt(9) = vec(v_0)/3 = [2/3, -1/3, 2/3] \
+vec(w) = vec(w_0)/norm(vec(w_0)) = vec(w_0)/sqrt(4^2 + (-3)^2 + (-12)^2) = 
+vec(w_0)/sqrt(169) = vec(w_0)/13  = [4/13, -3/13, -12/13]\
+$
+
+Sprawdźmy kąt między $vec(v)$ a $vec(w)$.
+$
+vec(v) dot vec(w) = 2/3 dot 4/13 + (-1/3) (-3/13) + 2/3 (-12/12) = 
+(8 + 3 - 24)/39 = -13/39 < 0
+$
+Iloczyn skalarny jest ujemny, więc kąt jest rozwarty. Dwusieczna będzie mieć
+wektor kierunkowy równy: $
+vec(w) - vec(v) = [4/13 - 2/3, -3/13 + 1/3, -12/13 - 2/3] = 
+[-14/39, 4/39, -62/39] = -2/39 dot [7, -2, 31]
+$
+
+Musimy jeszcze znaleźć punt $P$ przecięcia $l_1$ i $l_2$.
+$
+l_1: cases(x=1 + 2t, y=-1 - t, z = 2 + 2t) #h(1em) (t in RR), #h(2em)
+l_2: cases(x=-6+4s, y=1-3s, z=-29 - 12s) #h(1em) (s in RR)
+$
+$
+cases(1+2t = -6+4s, -1-t = 1-3s, 2+2t = -29-12s) \
+$$
+2t = -7 + 4s &= -31 - 12s \
+16s &= -24 \
+s &= -3/2 \
+t &= 1/2(-7 - 6) = -13/2 \
+x &= -6 - 6 = -12 \
+y &= 1 + 9/2 = 11/2 \
+z &= -29 + 18 = -11
+$
+Mamy punkt $P=(-12,11/2, -11)$, więc dwusieczna $l$ ma postać
+$
+l: cases(x = -12 + 7t, y = 11/2 -2t, z=-11 + 31t) #h(2em) (t in RR)
 $
