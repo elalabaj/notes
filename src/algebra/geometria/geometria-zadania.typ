@@ -531,3 +531,41 @@ Mamy punkt $P=(-12,11/2, -11)$, więc dwusieczna $l$ ma postać
 $
 l: cases(x = -12 + 7t, y = 11/2 -2t, z=-11 + 31t) #h(2em) (t in RR)
 $
+
+#problem[
+Oblicz miarę kąta między:
+]
+#subproblem[
+prostą $l: (x-3)/2 = (y-1)/0 = (z+2)/(-3)$ i płaszczyzną $pi = x-z=0$;
+]
+$
+vec(v) = [2,0,-3] \
+vec(n) = [1,0,-1] \
+sin alpha = abs(vec(v) dot vec(n))/(abs(vec(v)) dot abs(vec(n))) = 
+abs(2 + 0 + 3)/(sqrt(13) dot sqrt(2)) = 5/sqrt(26) \
+alpha = arcsin((5sqrt(26))/26)
+$
+#subproblem[
+płaszczyznami $π_1 : x − 2y + 3z − 5 = 0, π_2 : 2x + y − z + 3 = 0$;
+]
+$
+vec(n)_1 = [1,-2,3] \
+vec(n)_2 = [2,1,-1] \
+cos alpha = abs(vec(n)_1 dot vec(n)_2)/(abs(vec(n)_1) dot abs(vec(n)_2)) = 
+abs(2-2-3)/(sqrt(14) dot sqrt(6)) = 3/(2sqrt(21)) \
+alpha  = arccos(sqrt(21)/14)
+$
+#subproblem[
+prostymi:
+$
+l_1: cases(x=1-t, y=-2+t, z=3t) #h(1em) (t in RR) #h(2em)
+l_2: cases(x=3-2s, y=4-s, z=1+3s) #h(1em) (s in RR)
+  $
+]
+$
+vec(v)_1 = [-1,1,3] \
+vec(v)_2 = [-2,-1,3] \
+cos alpha = abs(vec(v)_1 dot vec(v)_2)/(abs(vec(v)_1) dot abs(vec(v)_2)) = 
+abs(2-1+9)/(sqrt(11) dot sqrt(14)) = 10/(sqrt(154)) \
+alpha  = arccos((5sqrt(154))/77)
+$
