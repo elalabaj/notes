@@ -267,3 +267,141 @@ alpha v_1 + beta v_2 = alpha/2 f(u_1) - beta f(u_2) = f(alpha/2 u_1 - beta u_2)
 $
 czyli $"Im"f = V$. Z tego wynika, że $dim "Im"f = dim V = 2$, a $dim U = 3$,
 więc $dim "Ker"f = 3-2 = 1$, czyli rzeczywiście $"Ker"f = "Lin"{u_1+2u_2+2u_3}$.
+
+#problem[
+Niech $f : U → V$ będzie odwzorowaniem liniowym, a $B$ bazą w $U$. 
+Udowodnij, że: $f$ jest injekcją $<=>f(B)$ jest układem liniowo niezależnym.
+]
+
+$f$ różnowartościowa $ => r(f) = dim "Im"f = dim U$
+
+Ale $"Im"f = "Lin"f(B)$, a $U = "Lin"B$, więc $dim "Lin"f(B) = dim "Lin"B$.
+
+Skoro wektory w $B$ są niezależne, a wektorów w $f(B)$ jest tyle samo i ich
+powłoka ma taki sam wymar to też muszą być niezależne.
+
+#problem-box(title: "Zadanie 9 (1)")[
+Niech $f: RR[x]_2 -> RR[x]_2$ będzie odwzorowaniem takim, że $(f(P))(x) =
+  -((x+1)^2)/2 P''(x) + (x+1)P'(x)$, gdzie $P in RR[x]_2$.
+]
+
+$
+f(a x^2 + b x + c) = -((x+1)^2)/2 dot 2a + (x+1)(2a x + b) = \
+-a x^2 - 2a x - a + 2a x^2 + b x + 2 a x + b = a x^2 + b x -a + b
+$
+
+#problem-box(title: "9.a)")[
+Sprawdź, że $f$ jest endomorfizmem w $RR[x]_2$ i że $f compose f = f$;
+]
+
+Niech $P(x) = a_1 x^2 + b_1 x + c_1, Q(x) = a_2 x^2 + b_2 + c_2, alpha, beta in
+RR$.
+$
+(f(alpha P + beta Q))(x) = f(alpha a_1 x^2 + alpha b_1 x - alpha a_1+alpha b_1 +
+beta a_2 x^2 + beta b_2 x - beta a_2 + beta b_2) = \
+f((alpha a_1 + beta a_2)x^2 + (alpha b_1 + beta b_2)x - alpha a_1+alpha
+b_1-beta b_2 + beta a_2) = \
+(alpha a_1 + beta a_2)x^2+ (alpha b_1 + beta b_2)x
+-(alpha a_1 + beta a_2)+(alpha b_1 + beta b_2) =  \
+alpha (a_1 x^2 + b_1 x - a_1 + b_1) + beta (a_2 x^2 + b_2 x - a_2 + b_2) = \
+alpha (f(P))(x) + beta (f(Q)(x))
+$
+
+Stąd odwzorowanie $f$ jest liniowe, a ponadto $f: RR[x]_2 -> RR[x]_2$ więc jest
+to endomorfizm.
+
+$(f compose f)(a x^2 + b x + c) = f(a x^2 + b x - a + b) = a x^2 + b x -a + b =
+f(a x^2 + b x + c)$
+
+#problem-box(title: "9.b)")[
+Znajdź $"Ker"f$, Im$f$ oraz ich bazy;
+]
+
+$f(a x^2 + b x + c) = 0 <=> a x^2 + b x -a + b = 0 <=> a = b = 0, c in RR$, \
+więc $"Ker"f = {P(x) = c: c in RR}$. Baza $"Ker"f$ to ${1}$.
+
+$"Im"f = {P(x) = a x^2 + b x - a + b: a, b in RR}$. Baza $"Im"f$ to ${x^2 - 1, x
++ 1}$.
+
+#problem-box(title: "9.c)")[
+Wykaż, że $RR[x]_2 = "Im"f plus.circle "Ker"f$;
+]
+
+Niech $a x^2 + b x + c in RR[x]_2$. 
+$
+a x^2 + b x + c = a x^2 + b x - a + b + a - b + c \
+a x^2 + b x - a + b in "Im"f, a - b + c in "Ker"f
+$
+Więc $RR[x]_2 = "Im"f + "Ker"f$. Ale $"Im"f inter "Ker"f = {P(x) = 0}$ więc
+$RR[x]_2 = "Im"f plus.circle "Ker"f$.
+
+#problem-box(title: "Zadanie 9 (2)")[
+Niech $g: RR[x]_2 -> RR^3$ będzie odwzorowaniem takim, że $g(P) = (P(1), P'(1),
+  P''(1))$. Wykaż, że $g$ jest izomorfizmem i znajdź $g^(-1)$.
+]
+
+$
+g(a x^2 + b x + c) = (a + b + c, 2a + b, 2a)
+$
+Pokażmy najpierw, że $g$ to odwzorowanie liniowe.
+Niech $P(x) = a_1 x^2 + b_1 x + c_1, Q(x) = a_2 x^2 + b_2 + c_2, alpha, beta in
+RR$.
+$
+g(alpha P + beta Q) = f(alpha a_1 x^2 + alpha b_1 x + alpha c_1 + beta a_2
+x^2 + beta b_2 x + beta c_2) = \
+f((alpha a_1 + beta a_2) x^2 + (alpha b_1 + beta b_2) x + alpha c_1 + beta
+c_2)=\
+(alpha a_1 + beta a_2 + alpha b_1 + beta b_2 + alpha c_1 + beta c_2, 
+2alpha a_1 + 2beta a_2 + alpha b_1 + beta b_2, 2alpha a_1 + 2beta a_2) = \
+alpha (a_1 + b_1 + c_1, 2a_1 + b_1, 2a_1) + beta (a_2 + b_2 + c_2, 2a_2 + b_2,
+2a_2) =
+alpha g(P) + beta g(Q)
+$
+
+Pokażmy teraz, że $g$ jest iniekcją.
+Niech $P(x) = a_1 x^2 + b_1 x + c_1, Q(x) = a_2 x^2 + b_2 + c_2$.
+$
+g(P) = g(Q) => (a_1 + b_1 + c_1, 2a_1 + b_1, 2a_2) = (a_2 + b_2 + c_2, 2a_2 +
+b_2, 2a_2) =>\
+a_1 = a_2 and b_1 = b_2 and c_1 = c_2 => P(x) = Q(x)
+$
+Pokażmy też, że jest surjekcją. Niech $(a, b, c) in RR^3$.
+$
+P(x) = c/2 x^2 + (b-c)x + a - b + c/2 in RR[x]_2 \
+g(P) = (c/2 + b - c + a - b + c/2, 2 dot c/2 + b - c, 2 dot c/2) = (a, b, c)
+$
+Stąd $g$ jest bijekcją, a ponieważ jest też odwzorowaniem liniowym to jest
+izomorfizmem.
+
+#problem-box(title: "Zadanie 10")[
+Niech $V, W, U$ będą przestrzeniami wektorowymi nad ciałem $K$, niech $f:V->W,
+  g:V->W, h:W->U$ będą odwzorowaniami liniowymi, i niech $alpha in K$.
+  Udowodnij, że $alpha f, f+g$ oraz $h compose f$ też są odwzorowaniami
+  liniowymi.
+]
+
+*1) $alpha f$*
+
+Niech $v in V, w in W, beta, gamma in K$.
+$
+alpha f(beta v + gamma w) = alpha(beta f(v) + gamma f(w)) = beta alpha f(v) + gamma alpha f(w)
+$
+
+*2) $f+g$*
+
+Niech $v in W, w in W, alpha, beta in K$.
+$
+(f+g)(alpha v + beta w) = f(alpha v + beta w) + g(alpha v + beta w) =  \
+alpha f(v) + beta f(w) + alpha g(v) + beta g(w) = 
+alpha (f+g)(v) + beta (f+g)(w)
+$
+
+*3) $h compose f$*
+
+Niech $v in V, u in U, alpha, beta in K$.
+
+$
+(h compose f)(alpha v + beta w) = h(f(alpha v + beta w)) = 
+h(alpha f(v) + beta f(w)) = \ alpha h(f(v)) + beta h(f(w)) = 
+alpha (h compose f)(v) + beta (h compose f)(w)
+$

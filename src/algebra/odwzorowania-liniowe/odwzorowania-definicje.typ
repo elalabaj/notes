@@ -46,11 +46,11 @@ $f: V->W$ - odwzorowanie liniowe
 
 - #h[monomorfizm]: $f$ to iniekcja $<=> "Ker"f = {overline(0)} <=> r(f) = dim V$
 - #h[epimorfizm]: $f$ to surjekcja ($"Im"f = W$) $<=> r(f) = dim W$
-- #h[izomorfizm]: $f$ to bijekcja (#h[przestrzenie izomorficzne]: $V ~ W$) $<=>
-  dim V = dim W$
-- #h[endomorfizm]: $V = W$
+- #h[izomorfizm]: $f$ to bijekcja - #h[endomorfizm]: $V = W$
 - #h[automorfizm]: $f$ to bijekcja i $V = W$
 - #h[forma liniowa]: $W = K$
+
+#h[przestrzenie izomorficzne]: $V ~ W$ jeżeli istnieje izomorfizm z $V$ na $W$ $<=> dim V = dim W$
 
 $cal(L)(V, W)$ - #h[zbiór odwzorowań] liniowych $f: V -> W$ \
 
