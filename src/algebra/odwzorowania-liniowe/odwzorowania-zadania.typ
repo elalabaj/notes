@@ -135,3 +135,135 @@ cases(7a+3b+2c = 0, 3a+b = 0) => cases(b = -3a, c = a) \
 dim R[x]_2 = dim "Ker"L + dim "Im"L => dim "Im"L = 3-1 = 2
 $
 
+#problem[
+Odwzorowanie liniowe $L : RR^3 → RR^2$ przeprowadza wektor $x =
+(2, 1, 1)$ na wektor $u = (4, 5)$ oraz wektor $y = (1, −3, 2)$ na wektor 
+$v = (−6, 1)$.
+Znajdź obraz wektora $z = (5, 6, 1)$ względem tego odwzorowania. Czy przy
+tych danych można jednoznacznie określić $L(4, 1, 5)$?
+]
+
+Znajdźmy kombinację liniową $x$ i $y$, która daje $z$.
+$
+alpha x + beta y = z \ alpha (2,1,1) + beta (1,-3,2) = (5, 6, 1)\
+mat(2,1,5;1,-3,6;1,2,1;augment:#2)->mat(0,-3,3;0,-5,5;1,2,1;augment:#2)\
+$$
+-3 beta = 3 => beta = -1 \
+alpha = 1 - 2beta = 3
+$
+W takim razie obraz wektora $z$ też będzie taką kombinacją: $
+w=alpha u + beta v=3(4, 5) - (-6, 1) = (18, 14)
+$
+Analogicznie znajdźmy kobinację dla wektora $L$.
+$
+mat(2,1,4;1,-3,1;1,2,5;augment:#2) -> mat(0,-3,-6;0,-5,-4;1,2,5;augment:#2)\
+-3 beta = -6 => beta = 2\
+-5 beta = -4 => beta = 4/5
+$
+Dochodzimy do sprzeczności, czyli $x$, $y$ i $L$ są liniowo niezależne, więc nie
+możemy znaleźć obrazu $L$.
+
+#problem[
+Wyznacz odwzorowanie liniowe $f : RR^3 → RR^2$
+takie, że $f(1, 1, 0) =(1, 1), f(0, 2, −1) = (−1, 0), f(1, 2, −1) = (0, 2)$.
+]
+$
+f(x,y,z) = (a x + b y + c z, d x + e y + f z) \
+cases(
+a + b = 1 => a = 1 - b, 
+d + e = 1 => d = 1-e, 
+2b - c = -1 => c = 2b + 1, 
+2e - f = 0 => f = 2e, 
+a + 2b - c = 0 => 1 - b + 2b - 2b - 1 = 0 => b = 0", " a=1", " c=1,
+d + 2e - f = 2 => 1-e + 2e - 2e = 2 => e = -1", "d = 2", "f=-2
+)\
+f(x,y,z) = (x+z, 2x-y-2z)\
+f(1,1,0) = (1,1) \
+f(0,2,-1) = (-1,0) \
+f(1,2,-1)=(0,2)
+$
+
+#problem[
+Skonstruuj następujące endomorfizmy:
+]
+
+#subproblem[
+$f : RR^4 → RR^4$ taki, że Ker$f = "Lin"{u_1, u_2}$ i Im$f = "Lin"{v_1, v_2}$, 
+  gdzie $u_1 = (1, 1, −1, 0), u_2 = (1, 1, 0, 1), v_1 = (1, 1, 1, 1), 
+  v_2 = (1, 0, 1, 0)$;
+]
+
+Wiemy, że Im$f="Lin"f(B)$, gdzie $B$ to baza $RR^4$. Musimy dobrać taką bazę,
+żeby $"Lin"f(B) = "Lin"{v_1, v_2}$. Niech naszą bazą będzie $u_1, u_2$ (ponieważ
+$f(u_1) = f(u_2) = overline(0)$) oraz dwa
+inne wektory, $w_1$ i $w_2$ tak, że $f(w_1) := v_1, f(w_2) := v_2$.
+
+Musimy znaleźć $w_1$ i $w_2$ niezależne od $u_1$ i $u_2$. $alpha u_1 + beta u_2
+= (alpha + beta, alpha + beta, -alpha, beta)$, więc możemy wziać 
+$w_1 = (1, 0, 0, 0)$ oraz $w_2 =(0,1,0,0)$.
+
+Możemy zapisać dowolny wektor z 
+$RR^4$ jako kombinacja liniowa wektorów z tej bazy.
+$
+(x, y, z, w) = alpha u_1 + beta u_2 + gamma w_1 + delta w_2 = 
+(alpha + beta + gamma, alpha + beta + delta, -alpha, beta) \
+cases(alpha = -z, beta = w, gamma = x + z - w, delta = y + z - w)\
+$
+Teraz możemy skonstruować takie $f$, że $f(u_1) = f(u_2) = overline(0), f(w_1) =
+v_1, f(w_2) = v_2$.
+$
+f(x, y, z, w) = f(-z u_1 + w u_2 + (x + z - w)w_1 + (y + z - w) w_2) =  \
+-z f(u_1) + w f(u_2) + (x + z - w) f(w_1) + (y + z - w) f(w_2) =  \
+(0, 0, 0, 0) + (0, 0, 0, 0) + (x + z - w) v_1 + (y + z - w) v_2 =  \
+(x + y + 2z - 2x, x + z - w, x + y + 2z - 2x, x + z - w)
+$
+
+
+#subproblem[ $f : RR^3 → RR^3 $
+taki, że Im$f = "Lin"{v_1, v_2}$, gdzie $v_1 = (1, 3, 2), v_2 = (3, −1, 1)$;
+]
+
+Skoro $dim "Im"f=2$, a $dim RR^3 = 3$ to $dim "Ker"f = 1$. 
+
+Możemy wybrać bazę
+$B={(1,0,0), (0,1,0) (0,0,1)}$ oraz zdefiniować $f$ tak, że $f(1,0,0)=v_1,
+f(0,1,0)=v_2, f(0,0,1)=overline(0)$.
+
+$
+f(x, y, z) = x f(1, 0, 0) + y f(0, 1, 0) + z f(0, 0, 1) =\
+x(1, 3, 2) + y(3, -1,1) + z(0, 0, 0) = \
+(x + 3y, 3x - y, 2x + y)
+$
+
+#subproblem[ $L : RR[x]_2 → RR[x]_2$ taki, że Ker$L = "Lin"{1 − x}$ i 
+  Im$L = "Lin"{1 + x, 1 + x^2}$.
+]
+
+Wybierzmy bazę $B={x^2, 1-x, 1}$ oraz zdefiniujmy $f$ tak, że $f(x^2)=1+x^2,
+f(1-x) = 0, f(1)=1+x$.
+$
+f(a x^2 + b x + c) = f(a x^2 -b (1-x) + b + c) = \
+a f(x^2) -b f(1-x) + (b+c) f(1) = a(1 + x^2) + (b+c)(1+x) = \
+a x^2 + (b+c)x + a + b + c
+$
+
+#problem[
+Niech $f : U → V$ będzie odwzorowaniem liniowym, a $(u_1, u_2, u_3),
+(v_1, v_2)$ będą bazami przestrzeni wektorowych, odpowiednio, $U$, $V$ 
+(nad ciałem $RR$). Wiedząc, że $f(u_1) = 2v_1, f(u_2) = −v_2, f(u_1 + u_3) = v_1
++ v_2$ i $f(u_1 − u_3) = 3v_1 − v_2$, wyznacz Ker$f$.
+]
+
+$
+2f(u_1 + u_3) - f(u_1) + 2f(u_2) = 2v_1 + 2v_2 -2v_1 - 2v_2 = 0 \
+f(2u_1 + 2u_3 - u_1 + 2u_2) = f(u_1 + 2u_2 + 2u_3) = 0
+$
+Więc na pewno $"Lin"{u_1 + 2u_2 + 2u_3} subset "Ker"f$. Pozostaje pytanie czy 
+to już całe jądro.
+
+Zauważmy, że każdy wektor z $V$ da się otrzymać przekształceniem:
+$
+alpha v_1 + beta v_2 = alpha/2 f(u_1) - beta f(u_2) = f(alpha/2 u_1 - beta u_2)
+$
+czyli $"Im"f = V$. Z tego wynika, że $dim "Im"f = dim V = 2$, a $dim U = 3$,
+więc $dim "Ker"f = 3-2 = 1$, czyli rzeczywiście $"Ker"f = "Lin"{u_1+2u_2+2u_3}$.
