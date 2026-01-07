@@ -140,17 +140,18 @@ $
 Dochodzimy do sprzeczności, czyli proste nie mają punktów 
 wspólnych. Wektory kierunkowe $vec(v)=[2,1,0]$ i $vec(w)=
 [0,1,-1]$ nie są proporcjonalne, czyli proste nie są 
-równoległe i nie leżą na jednej płaszczyźnie.
+równoległe, więc są skośne.
 
-$P = (1,0,2), Q=(3,0,0), vec(P Q)=[2,0,-2] $
+Odległość między prostymi skośnymi obliczamy ze wzoru:
 $
-vec(P Q) times vec(w) = mat(i,j,k;2,0,-2;0,1,-1)=[2,2,2]
+d=abs(vec(P Q) dot (vec(v) times vec(w)))/norm(vec(v) times vec(w))
 $
 $
-d(l_1, l_2) = d(P, l_2) = norm(vec(P Q) times vec(w))/
-norm(vec(w)) = sqrt(2^2 + 2^2 + 2^2)/sqrt(0^2+1^2+(-1)^2) = 
-(2 sqrt(3))/sqrt(2) = sqrt(6)
+P=(1,0,2), Q=(3,0,0), vec(P Q) = [2,0,-2]\
+vec(v) times vec(w) = mat(i,j,k;2,1,0;0,1,-1)=[-1,2,2]\
+d = abs(2(-1) + 0 dot 2 - 2 dot 2)/sqrt((-1)^2+2^2+2^2) = abs(-6)/sqrt(9)=6/3=2
 $
+
 
 #problem[Napisz równanie ogólne płaszczyzny $pi$ 
   przechodzącej przez punkty $A=(-1,2,4)$, $B=(2,1,3)$ i $C
@@ -196,17 +197,31 @@ vec(Q P) = vec(P Q') => vec(Q Q') = 2 vec(Q P) = -2/3 vec(n)=
 Q' = Q + vec(Q Q') = (5-8/3, -14/3, 8-10/3) =(7/3,-14/3,14/3)
 $
 
-#problem[Znajdź rzut prostokątny punktu $P=(6,4,0)$ na 
+#problem[Znajdź rzut prostokątny punktu $P=(1,3,8)$ na 
   prostą
 $
   l: cases(x=6+6t,y=4+3t,z=-6t) #h(2em) (t in RR)
   $
 oraz punkt symetryczny do $P$ względem tej prostej. ]
 
-Zauważmy, że dla $t=0$ dostajemy $x=6, y=4, z=0$ czyli punkt
-$P$. Oznacza to, że punkt $P$ leży na tej prostej, więc
-jest swoim rzutem prostokątnym na tę prostą oraz odbiciem
-symetrycznym względem niej.
+Znajdźmy płaszczyznę $pi$ prostopadłą do $l$ i zawierającą $P$. Jej wektor
+normalny to wektor kierunkowy prostej $l$ czyli $[6,3,-6]$, a po uproszczeniu
+$[2,1,-2]$.
+$
+pi: 2(x-1) + (y-3) -2(z-8)=0
+$
+Przecięcie tej płaszczyzny z prostą $l$ to rzut $P_0$ punktu $P$ na tą
+płaszczyznę.
+$
+2(6+6t-1)+(4+3t-3)-2(-6t-8)&=0\
+27t+27 &= 0\
+t &= -1\
+P_0 &= (0,1,6)
+$
+$
+vec(P P_0) = vec(P_0 P') = [-1,-2,-2] \
+P' = P_0 + vec(P_0 P') = (-1,-1,4)
+$
 
 #problem[Znajdź rzut prostokątny prostej 
   $k:(x-2)/1 = (y-2)/1 = (z-5)/1$ na płaszczyznę \
