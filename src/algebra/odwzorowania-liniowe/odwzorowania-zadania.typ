@@ -1,5 +1,6 @@
 #import "../../../template.typ": *
 #show: template
+#show math.equation: set block(breakable: true)
 
 #problem[Sprawdź, które z podanych odwzorowań są liniowe:]
 #subproblem[$L : RR[x] → RR[x], (L p)(x) = x p' (x) + p(1); checkmark$]
@@ -339,39 +340,29 @@ $RR[x]_2 = "Im"f plus.circle "Ker"f$.
 Niech $g: RR[x]_2 -> RR^3$ będzie odwzorowaniem takim, że $g(P) = (P(1), P'(1),
   P''(1))$. Wykaż, że $g$ jest izomorfizmem i znajdź $g^(-1)$.
 ]
+Wyznaczmy $M_g (B_1, B_2)$, gdzie $B_1=(1,x,x^2),B_2=((1,0,0),(0,1,0),(0,0,1))$.
+$
+g(a x^2 + b x + c) = (a + b + c, 2a + b, 2a)\
+g(1) = (1,0,0), g(x) = (1,1,0), g(x^2)=(1,2,2)\
+M_g (B_1, B_2) = mat(1,1,1;0,1,2;0,0,2)
+$
+Wiemy, że $r(g) = r(M_g)$. Żeby $g$ było izomorfizmem (bijekcją) to
+$r(g)=dim RR[x]_2 = dim RR^3 = 3$, czyli $det M_g != 0$.
 
 $
-g(a x^2 + b x + c) = (a + b + c, 2a + b, 2a)
+mat(delim:"|",1,1,1;0,1,2;0,0,2) = 2 != 0
 $
-Pokażmy najpierw, że $g$ to odwzorowanie liniowe.
-Niech $P(x) = a_1 x^2 + b_1 x + c_1, Q(x) = a_2 x^2 + b_2 + c_2, alpha, beta in
-RR$.
+Wyznaczmy teraz $g^(-1)$.
 $
-g(alpha P + beta Q) = f(alpha a_1 x^2 + alpha b_1 x + alpha c_1 + beta a_2
-x^2 + beta b_2 x + beta c_2) = \
-f((alpha a_1 + beta a_2) x^2 + (alpha b_1 + beta b_2) x + alpha c_1 + beta
-c_2)=\
-(alpha a_1 + beta a_2 + alpha b_1 + beta b_2 + alpha c_1 + beta c_2, 
-2alpha a_1 + 2beta a_2 + alpha b_1 + beta b_2, 2alpha a_1 + 2beta a_2) = \
-alpha (a_1 + b_1 + c_1, 2a_1 + b_1, 2a_1) + beta (a_2 + b_2 + c_2, 2a_2 + b_2,
-2a_2) =
-alpha g(P) + beta g(Q)
+mat(1,1,1,1,0,0;0,1,2,0,1,0;0,0,2,0,0,1;augment:#3)mat(delim:#none,-w_2;-w_3;:2;)->
+mat(1,0,-1,1,-1,0;0,1,0,0,1,-1;0,0,1,0,0,1/2;augment:#3)mat(delim:#none,+w_3;;;)->
+mat(1,0,0,1,-1,1/2;0,1,0,0,1,-1;0,0,1,0,0,1/2;augment:#3)
 $
-
-Pokażmy teraz, że $g$ jest iniekcją.
-Niech $P(x) = a_1 x^2 + b_1 x + c_1, Q(x) = a_2 x^2 + b_2 + c_2$.
+Dla dowolnego $(a,b,c) in RR^3:$
 $
-g(P) = g(Q) => (a_1 + b_1 + c_1, 2a_1 + b_1, 2a_2) = (a_2 + b_2 + c_2, 2a_2 +
-b_2, 2a_2) =>\
-a_1 = a_2 and b_1 = b_2 and c_1 = c_2 => P(x) = Q(x)
+g^(-1) (a,b,c) = mat(1,-1,1/2;0,1,-1;0,0,1/2)mat(a;b;c)=mat(a-b+1/2 c;b-c;1/2 c)
+= 1/2c x^2 + (b-c) x + a - b + 1/2 c
 $
-Pokażmy też, że jest surjekcją. Niech $(a, b, c) in RR^3$.
-$
-P(x) = c/2 x^2 + (b-c)x + a - b + c/2 in RR[x]_2 \
-g(P) = (c/2 + b - c + a - b + c/2, 2 dot c/2 + b - c, 2 dot c/2) = (a, b, c)
-$
-Stąd $g$ jest bijekcją, a ponieważ jest też odwzorowaniem liniowym to jest
-izomorfizmem.
 
 #problem-box(title: "Zadanie 10")[
 Niech $V, W, U$ będą przestrzeniami wektorowymi nad ciałem $K$, niech $f:V->W,
