@@ -157,6 +157,49 @@ mat(1,0,0,0,1,-1;0,1,0,-1,0,0;0,0,1,0,1,-2;augment:#3) \
 [v]_B_2 = mat(0,1,-1;-1,0,0;0,1,-2) mat(-2;4;2) = mat(2;2;0)
 $
 
+#problem-box(title: "Zadanie 7")[
+  Niech $f:U->V$ będzie odwzorowaniem liniowym, a $A=mat(3,0;2,1;1,-1)$ macierzą
+  tego odwzorowania w bazach $B_1=(u_1, u_2)$ i $B_2=(v_1,v_2,v_3)$.
+]
+
+#subproblem-box(title: "7.a)")[
+  Wykorzystując macierze przejścia, znajdź macierz $A'$ odwzorowania $f$ w
+  bazach $B'_1=(3u_1-2u_2,-u_1+u_2)$ i $B'_2=(-v_2,v_1+v_3,-v_1-2v_3)$.
+]
+$
+A' = M_f (B'_1, B'_2) = P_(B'_2 -> B_2) dot A dot P_(B_1 -> B'_1)\
+P_(B_1 -> B'_1) = mat(3,-1;-2,1)\
+P_(B'_2 -> B_2) = (P_(B_2 -> B'_2))^(-1) = (mat(0,1,-1;-1,0,0;0,1,-2))^(-1) \
+mat(0,1,-1,1,0,0;-1,0,0,0,1,0;0,1,-2,0,0,1;augment:#3) -->^(w_1 <-> w_2)
+mat(-1,0,0,0,1,0;0,1,-1,1,0,0;0,1,-2,0,0,1;augment:#3) 
+mat(delim:#none,dot (-1);;-w_2;)->
+mat(1,0,0,0,-1,0;0,1,-1,1,0,0;0,0,-1,-1,0,1;augment:#3) 
+mat(delim:#none,;-w_3;dot (-1);)-> \
+mat(1,0,0,0,-1,0;0,1,0,2,0,-1;0,0,1,1,0,-1;augment:#3) => 
+P_(B'_2 -> B_2) = mat(0,-1,0;2,0,-1;1,0,-1)\
+A' = mat(0,-1,0;2,0,-1;1,0,-1)mat(3,0;2,1;1,-1)mat(3,-1;-2,1) = 
+mat(0,-1,0;2,0,-1;1,0,-1)mat(9,-3;4,-1;5,-2)=mat(-4,1;13,-4;4,-1)
+$
+
+#subproblem-box(title: "7.b)")[
+Dwoma sposobami (korzystając z macierzy $A$ i $A'$ znajdź $f(w)$ dla wektora
+  $w=2u_1-u_2$).
+]
+
+$
+w = [2,-1]_B_1 \
+f(w) = A mat(2;-1) = mat(3,0;2,1;1,-1)mat(2;-1)=mat(6;3;3)_B_2=6v_1 + 3v_2 +
+3v_3
+$
+
+Żeby obliczyć $f(w)$ przy pomocy $A'$ musimy go najpierw zamienić na współrzędne
+z $B'_1$.
+$
+w = 2u_1 - u_2 = 3u_1 - 2u_2 - u_1 + u_2 = [1,1]_B_2 \
+f(w) = A' mat(1;1) = mat(-4,1;13,-4;4,-1)mat(1;1) = mat(-3;9;3)_B_2 = \
+-3(-v_2) + 9(v_1 + v_3) + 3(-v_1 -2v_3) = 6v_1 + 3v_2 + 3v_3
+$
+
 #problem-box(title: "Zadanie 8")[
 Niech $A=M_f (B_1, B_2) = mat(3,0;2,1;1,-1)$ będzie macierzą odwzorowania
 liniowego $f:U->V$,
