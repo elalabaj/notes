@@ -66,6 +66,14 @@ jego punktem skupienia. ) \
 $x_0$ jest punktem skupienia $A$ gdy istnieje ciąg 
 $(x_n) subset A without {x_0}$ który zmierza do $x_0$.
 
+#h[Przestrzeń niespójna] - możemy podzielić $x$ na otwarte zbiory $A_1, A_2$
+takie, że:
++ $A_1 union A_2 = X$
++ $A_1 inter A_2 = emptyset$
++ $A_1, A_2 != emptyset$ emptyset
+
+#h[Przestrzeń spójna] - nie jest niespójna
+
 #h[Definicja granicy ciągu] -  
 $lim_(n-> infinity) a_n = g <=> lim_(n->infinity) d(a_n, g)=0$
 
@@ -88,5 +96,83 @@ zbieżny do granicy należącej do tej przestrzeni. (np. $QQ$ nie jest zupełny,
 ciąg $3, 3.1, 3.14, ...$ zmierza do $pi in.not QQ$)
 
 #h[Zbiór zwarty] - z każdego ciągu można wybrać podciąg zbieżny do granicy
-należącej do tego zbioru. Zbiór jest zwarty wtedy i tylko wtedy kiedy jest
+należącej do tego zbioru. Dla metryk euklidesowej, taksówkarskiej i maksimum 
+zbiór $A subset RR^n$ jest zwarty wtedy i tylko wtedy kiedy jest
 zbiórem domkniętym i ograniczonym.
+
+= Odwzorowania ciągłe
+
+#h[Obraz zbioru] $A subset X$ poprzez odwzorowanie $f:X->Y$ - $f[A]={f(x)in Y:x
+in A}$
+
+#h[Przeciwobraz zbioru] $B subset Y$ - $f^(-1) [B] = {x in X : f(x) in B}$
+
+#h[Definicje granicy funkcji]
+$f:X->Y, (X,d), (Y, rho)$ - przestrzenie metryczne \ $lim_(x->x_0) f(x)=g <=> $
+- *definicja topologiczna (Cauchy'ego)* $forall V in "ot"(g) thick exists U 
+in "ot" (x_0): f[U without {x_0}] subset V$ \ Wartości $f$ z otoczenia $x_0$
+  mogą się zawierać w dowolnie małym otoczeniu $g$.
+- *definicja Cauchy'ego w przestrzeniach metrycznych* \ $forall epsilon >0 thick
+  exists delta > 0 thick forall x in X: 0 < d(x,x_0)<delta => rho(f(x),g) <
+  epsilon$ \
+  $forall K(g,epsilon) thick exists K(x_0, delta): f[K(x_0,delta)without{x_0}]
+  subset K(g,epsilon)$
+- *definicja Heinego w przestrzeniach metrycznych* \ $forall (x_n) subset X
+  without {x_0}: lim_(n->infinity) d(x_n,x_0)=0 => lim_(n->infinity)
+  rho (f(x_n),g)=0$ \
+  Wartości każdego ciągu zmierzającego do $x_0$ zmierzają do $g$
+
+#h[Definicje funkcji ciągłej]
+- *$f$ ciągła w zbiorze $X$* $<=> forall V in tau_Y: f^(-1) [V] in tau_X$ \
+  przeciwobraz dowolnego zbioru otwartego jest zbiorem otwartym
+- *$f$ ciągła w punkcie $x_0$* $<=> lim_(x->x_0) f(x)=f(x_0)$
+- *$f$ ciągła w zbiorze $A subset X$* $<=> f$ ciągła w każdym punkcie $x_0 in A$
+
+#h[Odwzorowanie ograniczone] - obraz $f[X]$ jest zbiorem ograniczonym
+
+#h[Tw. o zwartości obrazu funkcji ciągłej na zbiorze zwartym] \
+$Z$: $f:X->Y, (X,d), (Y, rho)$-przestrzenie metryczne, $f$ ciągła\
+$T$: $X$ jest zbiorem zwartym $=> f[X]$ jest zbiorem zwartym
+
+#h[Tw. Weierstrassa o osiąganiu kresów] \ $Z$: $f:X->RR, (X,d),(RR, |dot|)$ -
+p. metryczne, $X$ zwarty \
+$T$: $exists x_1,x_2 in X: f(x_1)=sup f[X] and f(x_2)=inf f[X]$
+
+#h[Tw. o przyjmowaniu wartości pośrednich] \
+$Z$: $(X,d)$-przestrzeń metryczna spójna, $f:X->RR$ ciągła, $x_1,x_2 in X,
+f(x_1)<f(x_2)$ \
+$T$: $forall c in (f(x_1),f(x_2)) thick exists x_0 in X: f(x_0)=c$
+
+#h[Tw. o własności Darboux]\
+$Z$: $f:A-> RR$ ciągła, $A$-przedział $subset RR, x_1,x_2 in A, f(x_1)<f(x_2)$\
+$T$: $forall c in (f(x_1),f(x_2)) thick exists x_0 in (x_1,x_2): f(x_0)=c$
+
+#h[Tw. o spójności obrazu zbioru spójnego]\
+$Z$: $f:X->Y, (X,d), (Y,rho)$-przestrzenie metryczne, $X$-spójna, $f$ ciągła \
+$T$: $f[X]$ spójny
+
+= Przestrzenie unormowane i unitarne
+
+#h[Norma] - funkcja $norm(dot) : X -> RR$ w przestrzeni wektorowej $(X,K,+,dot)$
+taka, że:
++ $norm(x)>=0$
++ $norm(alpha dot x) = abs(alpha) dot norm(x)$
++ $norm(x+y) <= norm(x)+norm(y)$
++ $norm(x)=0 <=> x = arrow(0)$
+
+#h[Przestrzeń unormowana] - para $(X, norm(dot))$ \
+Każda przestrzeń unormowana jest metryczna $d(x,y)=norm(x-y)$ (metryka
+indukowana normą)
+
+#h[Przestrzeń Banacha] - przestrzeń unormowana i zupełna
+
+#h[Iloczyn skalarny] - funkcja $compose:X times X-> K$ taka, że:
++ $x compose x >= 0$
++ $x compose y = overline(y compose x)$ (ma znaczenie jeśli $K=CC$)
++ $(x+y)compose z=x compose z + y compose z$
++ $x compose x = 0 <=> x = arrow(0)$
+
+#h[Przestrzeń unitarna] - para $(X, compose)$ \
+Każda przestrzeń unitarna jest unormowana $norm(x)=sqrt(x compose x)$
+
+#h[Przestrzeń Hilberta] - przestrzeń unitarna i zupełna
