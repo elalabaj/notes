@@ -59,9 +59,11 @@ wspólną i z $A$ i z $X without A$.
 
 #h[Brzeg] $partial A$ zbioru $A$ - zbiór wszystkich punktów brzegowych
 
-#h[Punkt skupienia] $x_0 in X$ zbioru $A subset X$ - dowolnie blisko niego
-znajdują się inne punkty z $A$. Zbiór jest domknięty kiedy zawiera wszystkie
-swoje punkty skupienia. (np. $(0,1 angle.r$ nie jest domknięty, bo $0$ jest
+#h[Punkt skupienia] $x_0 in X$ zbioru $A subset X$ - 
+$forall r>0: (K(x_0,r)without {x_0}) inter A != emptyset$. \
+Zbiór jest domknięty kiedy zawiera wszystkie
+swoje punkty skupienia. \
+(np. $(0,1 angle.r$ nie jest domknięty, bo $0$ jest
 jego punktem skupienia. ) \
 $x_0$ jest punktem skupienia $A$ gdy istnieje ciąg 
 $(x_n) subset A without {x_0}$ który zmierza do $x_0$.
@@ -70,7 +72,7 @@ $(x_n) subset A without {x_0}$ który zmierza do $x_0$.
 takie, że:
 + $A_1 union A_2 = X$
 + $A_1 inter A_2 = emptyset$
-+ $A_1, A_2 != emptyset$ emptyset
++ $A_1, A_2 != emptyset$ 
 
 #h[Przestrzeń spójna] - nie jest niespójna
 
@@ -153,7 +155,8 @@ $T$: $f[X]$ spójny
 
 = Przestrzenie unormowane i unitarne
 
-#h[Norma] - funkcja $norm(dot) : X -> RR$ w przestrzeni wektorowej $(X,K,+,dot)$
+#h[Norma] - funkcja $norm(dot) : X -> RR$ w przestrzeni wektorowej $(X,K,+,dot),
+K = RR,CC$
 taka, że:
 + $norm(x)>=0$
 + $norm(alpha dot x) = abs(alpha) dot norm(x)$
