@@ -135,3 +135,20 @@ $sum_(n=0)^infinity a_n (x - x_0)^n, #h(1em) a_n, x, x_0 in RR, CC$
   $sum a_n (x-x_0)^n$ zbieżny w $x_0 plus.minus R =>$ \
   $S(x_0 plus.minus R) = limits(lim)_(x->x_0 plus.minus 
   R^(minus.plus)) S(x)$
+
+= Szeregi Taylora
+
+$f(x) = limits(sum)_(n=0)^infinity (f^((n)) (x_0))/(n!) (x-x_0)^n$ (szereg Maclaurina dla $x_0 = 0$)
+
+- *Ważne rozwinięcia* \
+  $e^x = limits(sum)_(n=0)^infinity x^n/n!, x in RR, CC$ 
+
+  $sin x=limits(sum)_(n=0)^infinity ((-1)^n x^(2n+1))/(2n+1)!,
+  x in RR, CC$ 
+
+  $cos x=limits(sum)_(n=0)^infinity ((-1)^n x^(2n))/(2n)!, 
+  x in RR, CC$ 
+
+- *Wzór Eulera* \
+  $e^(i z) = cos z + i sin z$\
+  $e^(i pi) + 1 = 0$
