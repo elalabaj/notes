@@ -100,3 +100,38 @@ $S_n (x) = f_1 (x) + f_2 (x) + ... + f_n (x)$
 
 - *Ciągłość*\
   $f_n$ ciągłe, $S_n arrows S => S$ ciągła
+
+= Szeregi potęgowe
+
+$sum_(n=0)^infinity a_n (x - x_0)^n, #h(1em) a_n, x, x_0 in RR, CC$
+
+- *Przedział zbieżności* \
+  - Szereg potęgowy jest zawsze zbiezny w $x = x_0$ \
+  - Szereg jest zbieżny w $(x_0 - R, x_0 + R)$ i rozbieżny w $(-infinity, x_0 - R) union (x_0 + R, +infinity)$ \
+  - W $x_0 - R$ i $x_0 + R$ szereg może być zarówno zbieżny jak i rozbieżny
+
+- *Twierdzenie Cauchy'ego - Hadamarda* \
+  $R = 1/lambda$, gdzie
+  $lambda = lim_(n->infinity) abs((a_(n+1))/a_n) = lim_(n->infinity)  root(n, abs(a_n))$\
+
+- *Zbieżność* \
+  $sum a_n (x-x_0)^n$ zbieżny w $(x_0-R, x_0+R)=>$ \
+  - $sum abs(a_n (x-x_0)^n)$ zbieżny w $(x_0-R, x_0+R)$\
+  - $sum a_n (x-x_0)^n$ (niemal) jednostajnie zbieżny w $[a,b]  
+    subset (x_0-R,x_0+R)$
+
+- *Ciągłość* \
+  $S(x) = sum a_n (x-x_0)^n$ jest ciągła w $(x_0-R, x_0+R)$
+
+- *Różniczkowalność*\
+  $S(x)$ różniczkowalna w $(x_0-R, x_0+R)$ \
+  $S'(x)=sum(a_n (x-x_0)^n)'$
+
+- *Całkowanie*\
+  $S(x)$ całkowalna w $(x_0-R, x_0+R)$ \
+  $integral S(x)d x=sum integral a_n (x-x_0)^n d x$
+
+- *Twierdzenie Abela* \
+  $sum a_n (x-x_0)^n$ zbieżny w $x_0 plus.minus R =>$ \
+  $S(x_0 plus.minus R) = limits(lim)_(x->x_0 plus.minus 
+  R^(minus.plus)) S(x)$
